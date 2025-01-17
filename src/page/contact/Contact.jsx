@@ -76,7 +76,9 @@ export default function Contact() {
             <div className="relative grid gap-12  lg:grid-cols-12 ">
               {/* Left side - Image placeholder */}
               <div className="hidden lg:col-span-5 px-9 py-7 text-white rounded-[30px] bg-[#181818] lg:flex lg:flex-col lg:justify-between ">
-                <h1 className="text-[38px] font-bold mb-28">Contact Information</h1>
+                <h1 className="text-[38px] font-bold mb-28">
+                  Contact Information
+                </h1>
 
                 <div className="text-[23px] font-bold ">
                   <div className="flex gap-4 mb-16">
@@ -124,47 +126,40 @@ export default function Contact() {
                         fill="white"
                       />
                     </svg>
-                    <span>Model Town, C-Block <br/> Lahore, Pakistan</span>
+                    <span>
+                      Model Town, C-Block <br /> Lahore, Pakistan
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex gap-2">
-                
                   {/* linkedIn */}
                   <span>
-                  <img
-              src={`/images/linkedIn.svg`}
-              alt="whychoose"
-            />
+                    <img src={`/images/linkedIn.svg`} alt="whychoose" />
                   </span>
 
                   {/* Insta  */}
                   <span>
-                  <img
-              src={`/images/insta.svg`}
-              alt="whychoose"
-            />
+                    <img src={`/images/insta.svg`} alt="whychoose" />
                   </span>
 
                   {/* facebook  */}
                   <span>
-                  <img
-              src={`/images/facebook.svg`}
-              alt="whychoose"
-            />
+                    <img src={`/images/facebook.svg`} alt="whychoose" />
                   </span>
                 </div>
-
-
               </div>
 
               {/* Right side - Form */}
-              <div className="relative lg:mt-10 col-span-12 lg:col-span-7">
+              <div className="relative lg:mt-10  lg:col-span-7">
                 <form onSubmit={handleSubmit} className="space-y-12 ">
                   {/* Name fields */}
                   <div className="grid gap-8 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <label htmlFor="firstName" className="font-semibold text-white">
+                      <label
+                        htmlFor="firstName"
+                        className="font-semibold text-white"
+                      >
                         First Name
                       </label>
                       <input
@@ -178,7 +173,10 @@ export default function Contact() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="lastName" className="font-semibold text-white">
+                      <label
+                        htmlFor="lastName"
+                        className="font-semibold text-white"
+                      >
                         Last Name
                       </label>
                       <input
@@ -196,7 +194,10 @@ export default function Contact() {
                   {/* Contact fields */}
                   <div className="grid gap-8 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <label htmlFor="email" className="font-semibold text-white">
+                      <label
+                        htmlFor="email"
+                        className="font-semibold text-white"
+                      >
                         Email
                       </label>
                       <input
@@ -210,7 +211,10 @@ export default function Contact() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="phone" className="font-semibold text-white">
+                      <label
+                        htmlFor="phone"
+                        className="font-semibold text-white"
+                      >
                         Phone Number
                       </label>
                       <div className="flex items-center border-b border-white focus-within:border-red-500">
@@ -246,7 +250,6 @@ export default function Contact() {
                             checked={formData.subject === subject}
                             onChange={handleChange}
                             className="peer text-white accent-red-500 focus:ring-red-500"
-
                           />
                           <span className="text-sm text-white">{subject}</span>
                         </label>
@@ -272,19 +275,17 @@ export default function Contact() {
                   </div>
 
                   {/* Submit button */}
-                  <div className="relative  flex justify-end">
-                    
+                  <div className="relative flex justify-center md:justify-end">
                     <button
                       type="submit"
-                      className="group  gap-2 rounded-md bg-[#1E1E1E] px-12 py-3.5 text-white transition-colors hover:bg-red-600"
+                      className="group mb-10 md:mb-0 gap-2 rounded-md bg-[#1E1E1E] px-12 py-3.5 text-white transition-colors hover:bg-red-600"
                     >
                       Send Message
                     </button>
 
-<div className=" hidden lg:block absolute top-5 right-12">
-<img alt="whychoose" src="/images/letter_send.svg"/>
-</div>
-
+                    <div className=" hidden lg:block absolute top-5 right-12">
+                      <img alt="whychoose" src="/images/letter_send.svg" />
+                    </div>
                   </div>
                 </form>
               </div>

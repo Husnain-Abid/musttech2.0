@@ -13,7 +13,7 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <>
-      <div className="bg-[#110F0F] min-h-screen font-agrandir  ">
+      <div className="bg-[#110F0F] min-h-screen font-agrandir">
 
         <Navbar />
         <Routes >

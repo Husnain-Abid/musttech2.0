@@ -475,27 +475,27 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
             <div className="relative overflow-hidden mx-auto container p-8 z-0">
               {/* Quote Section */}
 
-              <div className="relative flex flex-col justify-center max-w-[848px] h-[507px] ml-32 py-8 bg-white ">
-                <div className="relative flex flex-col justify-between max-w-[552px] h-[355px] ml-64 my-16 ">
-                  <div className="absolute top-0 -left-12">
+              <div className="relative flex flex-col justify-center mx-auto max-w-xs sm:max-w-lg md:max-w-[848px] h-[507px] md:ml-32 py-8 bg-white ">
+                <div className="relative flex flex-col justify-between max-w-[552px] h-[355px] ml-24 sm:ml-44 md:ml-64 my-16 ">
+                  <div className="absolute top-0 -left-7 sm:-left-8 md:-left-12 ">
                     <img
                       alt="dsfa"
-                      class="object-cover"
+                      class="object-cover w-4 sm:w-5 md:w-10 "
                       src="/images/quote1.svg"
                     ></img>
                   </div>
 
                   <div className="">
-                    <blockquote className="text-xl text-gray-900">
+                    <blockquote className="mb-2  text-xs sm:text-sm md:text-xl text-gray-900  pe-5 ">
                       {testimonials[currentIndex].quote}
                     </blockquote>
                   </div>
 
                   <div>
-                    <div className="mb-1 text-xl font-bold text-gray-900">
+                    <div className="mb-1 text-sm sm:text-base md:text-xl font-bold text-gray-900">
                       {testimonials[currentIndex].author}
                     </div>
-                    <div className="mb-4 text-gray-900">
+                    <div className="mb-4 text-xs sm:text-sm md:text-base text-gray-900">
                       {testimonials[currentIndex].role}
                     </div>
                   </div>
@@ -508,6 +508,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                         height="26"
                         viewBox="0 0 27 26"
                         fill="none"
+                        className="w-4 md:w-6"
                       >
                         <path
                           fill-rule="evenodd"
@@ -517,7 +518,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                         />
                       </svg>
 
-                      <span className="text-gray-600 hover:text-blue-700">
+                      <span className="text-xs md:text-base text-gray-600 hover:text-blue-700">
                         LinkedIn profile
                       </span>
                     </div>
@@ -530,7 +531,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                     // src="/images/testimonial/testimonial1.png"
                     src={`/images${testimonials[currentIndex].image}.png`}
                     alt={testimonials[currentIndex].author}
-                    className="object-cover max-w-80 h-[450px]"
+                    className="object-cover max-w-56  sm:max-w-72  md:max-w-80 h-[450px]"
                   />
                 </div>
 
@@ -548,6 +549,8 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                   )}
                 </div>
               </div>
+
+
             </div>
           </div>
 

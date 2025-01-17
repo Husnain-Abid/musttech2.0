@@ -38,19 +38,20 @@ Explore our portfolio to see how we’ve transformed ideas into success stories,
       title: "Eon Health",
       category: "WEBSITE",
       image: "/portfolio/portfolio3",
-      link: "https://amnaismail.com/",
+      link: "https://www.eonhealth.com/",
     },
     {
       title: "Breshna",
       category: "WEBSITE",
       image: "/portfolio/portfolio4",
-      link: "https://www.eonhealth.com/",
+      link: "https://breshna.io/",
     },
     {
       title: "Amnaismail",
       category: "DASHBOARD",
       image: "/portfolio/portfolio5",
-      link: "https://breshna.io/",
+      link: "https://amnaismail.com/",
+
     },
     {
       title: "Creative landing page",

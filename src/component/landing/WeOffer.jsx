@@ -5,31 +5,37 @@ const services = [
     icon: "logo1",
     title: "Branding",
     description: "We shape identities that speak volumes, leaving impressions that stand the test of time.",
+    to:"/services/branding"
   },
   {
     icon: "logo2",
     title: "Web development",
     description: "Forging digital landscapes where connections thrive and visions come to life.",
+    to:"/services//web-development"
   },
   {
     icon: "logo3",
     title: "Digital marketing",
     description: "We craft strategies that make your brand unforgettable in the digital world.",
+    to:"/services/digital-marketing"
   },
   {
     icon: "logo4",
     title: "Mobile App",
     description: "We build seamless mobile experiences that keep your users engaged, wherever they go.",
+    to:"/services/mobile-app"
   },
   {
     icon: "logo5",
     title: "SEO",
     description: "We optimize your online presence to ensure you stand out and rank high where it matters most.",
+    to:"/services/seo"
   },
   {
     icon: "logo6",
     title: "Customer services",
     description: "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
+    to:"/services/branding"
   },
 ];
 

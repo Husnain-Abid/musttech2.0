@@ -6,7 +6,9 @@ module.exports = {
   ],
 
   theme: {
-    
+
+  
+
     extend: {
       fontFamily: {
         quicksand: ['Quicksand', 'sans-serif'], // Add Quicksand as a custom font
@@ -18,14 +20,14 @@ module.exports = {
         foreground: "var(--foreground)",
         customred: "#EC2027"
 
-      
+
       },
       // animation: {
       //   'slide-left': 'slide-left 30s linear infinite',
       //   'slide-right': 'slide-right 30s linear infinite',
       // },
 
-      
+
 
 
     },
