@@ -132,7 +132,7 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative max-w-[523px] mx-auto max-w-7xl px-6 py-16 md:pt-20 md:pb-52 ">
-          <h1 className="mb-4 text-5xl font-bold leading-tight text-white md:text-8xl">
+          <h1 className="mb-4 text-6xl font-bold leading-tight text-white md:text-8xl">
             Attract
             <br />
             <span
@@ -157,7 +157,7 @@ export default function Hero() {
             empower your tomorrow.
           </p>
 
-          <form onSubmit={handleSubmit} className="flex max-w-xl gap-2 md:gap-4">
+          <form onSubmit={handleSubmit} className="flex max-w-xl gap-4">
             <input
               type="email"
               value={email}

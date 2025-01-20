@@ -13,7 +13,8 @@ export default function Navbar() {
         <img
           src="/images/logo.svg"
           alt="Company Logo"
-      className="max-w-[180px] md:max-w-[235px]"
+          width={235}
+          height={52}
         />
       </Link>
 

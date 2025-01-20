@@ -74,7 +74,7 @@ export default function Work() {
             <Link
               key={index}
               to={project.link}
-              className="group block relative overflow-hidden rounded-s border border-[#A1AEBF] p-6 transition-all duration-500  hover:border-customred"
+              className="group block relative overflow-hidden rounded-s border border-[#A1AEBF] p-6 transition-colors hover:border-customred"
             >
               {project.image && (
                 <div className={project.image ? "mb-6 overflow-hidden rounded-s" : ""}>
@@ -83,7 +83,7 @@ export default function Work() {
                     alt={project.title}
                     width={365}
                     height={142}
-                    className="h-auto w-full transition-all duration-500 hidden group-hover:scale-105 group-hover:block"
+                    className="h-auto w-full transition-transform duration-300 hidden group-hover:scale-105 group-hover:block"
                   
                   
                   />
@@ -105,7 +105,6 @@ export default function Work() {
           ))}
         </div>
      
-
         {/* Projects2 Grid */}
         <div className="flex flex-col gap-8   ">
           {projects2.map((project, index) => (

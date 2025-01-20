@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Card({ service }) {
   return (
-     <Link to={`${service.to}`}  className="group rounded border border-[#A1AEBF] p-5 transition-all duration-500 hover:border-red-500 hover:scale-105">
+     <Link to={`${service.to}`}  className="group rounded border border-[#A1AEBF] p-5 transition-all duration-300 hover:border-red-500">
       <div className="mb-3 inline-block rounded-lg   ">
         {/* <service.icon className="h-6 w-6" /> */}
         <img
