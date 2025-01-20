@@ -18,7 +18,7 @@ export default function CtaSection() {
     }
 
     return (
-        <section className="bg-black px-6 py-20">
+        <section className="bg-black px-6 py-16 md:py-20">
             <div className="mx-auto container">
                 {/* CTA Card */}
                 <div className="rounded bg-customred px-8 py-16 text-center">

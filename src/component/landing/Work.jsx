@@ -8,17 +8,19 @@ const projects = [
     image: '/services/work1',
     link: '/projects/landing-page'
   },
+  {
+    category: 'DEVELOPMENT',
+    title: 'Automation. Advanced Level',
+    image: '/services/work2',
+    link: '/projects/automation'
+  },
 
   {
     category: 'BRANDING',
     title: 'Creative Branding',
+    image: '/services/work1',
     link: '/projects/branding'
   },
-  {
-    category: 'DEVELOPMENT',
-    title: 'Automation. Advanced Level',
-    link: '/projects/automation'
-  }
 ]
 
 const projects2 = [
@@ -26,31 +28,33 @@ const projects2 = [
   {
     category: 'DIGITAL MARKETING',
     title: "Why We Collect User's Data",
+    image: '/services/work2',
     link: '/projects/user-data'
   },
   {
     category: 'USER TESTING',
     title: 'Creative landing page',
-    image: '/services/work2',
+    image: '/services/work1',
     link: '/projects/user-testing'
   },
   {
     category: 'SEO',
     title: 'How We Optimized Our SEO',
+    image: '/services/work2',
     link: '/projects/seo'
   }
 ]
 
 export default function Work() {
   return (
-    <section className="bg-[#0B0B0B] py-20 font-quicksand">
+    <section className="bg-[#0B0B0B]  py-16 md:py-20 font-quicksand">
       <div className="mx-auto container px-6 grid gap-8 lg:grid-cols-3" >
         {/* Header */}
         <div className="lg:col-span-1 mb-12 max-w-[412px]">
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
             Some pieces of our work
           </h2>
-          <p className="mb-6 text-white/60 font-medium">
+          <p className="mb-6 text-white/100 font-medium">
             Explore some of our most successful projects, where we&apos;ve transformed
             ideas into impactful digital experiences. Each piece showcases our
             commitment to excellence, creativity, and delivering results that speak
@@ -70,7 +74,7 @@ export default function Work() {
             <Link
               key={index}
               to={project.link}
-              className="group block relative overflow-hidden rounded-s border border-[#A1AEBF]  p-6 transition-colors hover:border-customred"
+              className="group block relative overflow-hidden rounded-s border border-[#A1AEBF] p-6 transition-all duration-500  hover:border-customred"
             >
               {project.image && (
                 <div className={project.image ? "mb-6 overflow-hidden rounded-s" : ""}>
@@ -79,7 +83,9 @@ export default function Work() {
                     alt={project.title}
                     width={365}
                     height={142}
-                    className="h-auto w-full transition-transform duration-300 group-hover:scale-105"
+                    className="h-auto w-full transition-all duration-500 hidden group-hover:scale-105 group-hover:block"
+                  
+                  
                   />
                 </div>
               )}
@@ -99,6 +105,7 @@ export default function Work() {
           ))}
         </div>
      
+
         {/* Projects2 Grid */}
         <div className="flex flex-col gap-8   ">
           {projects2.map((project, index) => (
@@ -114,7 +121,7 @@ export default function Work() {
                     alt={project.title}
                     width={365}
                     height={142}
-                    className="h-auto w-full transition-transform duration-300 group-hover:scale-105"
+                    className="h-auto w-full transition-transform duration-300 hidden group-hover:scale-105 group-hover:block  "
                   />
                 </div>
               )}

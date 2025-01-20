@@ -300,17 +300,20 @@ export default function Services() {
 
   if (!service) {
     return (
-      <div className="container mx-auto px-6 py-10">
-        <h1 className="text-center text-2xl font-bold text-red-500">
-          Service not found
-        </h1>
-        <Link
-          to="/"
-          className="mt-4 inline-block rounded-full border border-gray-800 px-6 py-3 text-sm font-medium text-gray-800 hover:bg-gray-800 hover:text-white"
-        >
-          Go to Home
-        </Link>
+      <div className="container mx-auto px-6 py-10 min-h-[63vh] flex flex-col justify-around">
+      <h1 className="text-center text-2xl font-bold text-customred ">
+        Service not found
+      </h1>
+      <div>
+      <Link
+        to="/"
+        className="mt-4 inline-block rounded-full border border-customred px-6 py-3 text-sm font-medium text-customred hover:bg-customred hover:text-white"
+      >
+        Go to Home
+      </Link>
+
       </div>
+    </div>
     );
   }
 

@@ -29,6 +29,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
+import ReasonSection from "../../component/ReasonSection";
 
 export default function Careers() {
   const data = {
@@ -384,7 +385,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       </section>
 
       {/* benefits section  */}
-      <section className="bg-black px-6 pt-20 pb-10">
+      <section className="bg-black px-6 pt-16 md:pt-20 pb-10">
         <div className="mx-auto container">
           <div className="mb-9">
             <h2 className="mb-4 text-2xl font-bold text-white md:text-2xl">
@@ -396,7 +397,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="grid gap-3 md:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               const isEven = index % 2 === 0; // Check if the index is even
@@ -404,13 +405,13 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
               return (
                 <div
                   key={index}
-                  className={`group relative flex gap-3 overflow-hidden rounded-sm px-4 py-5 transition-all ${
+                  className={`group relative flex items-center gap-3 overflow-hidden rounded-sm px-4 pt-5 pb-9  transition-all ${
                     isEven
                       ? "bg-gradient-to-b from-[#ec2027] to-sky-50 hover:bg-gradient-to-t hover:to-sky-50 hover:from-[#ec2027]"
                       : "bg-gradient-to-t from-[#ec2027] to-sky-50 hover:bg-gradient-to-b hover:to-sky-50 hover:from-[#ec2027]"
                   }`}
                 >
-                  <div className="mb-4">
+                  <div className=" ">
                     {/* <Icon className="h-8 w-8 text-white" /> */}
                     <img
                       src={`/images${Icon}.svg`}
@@ -434,7 +435,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       <section className="bg-black px-6 pt-10 pb-20">
         <div className="mx-auto container">
           <h2 className="mb-9 text-2xl font-bold text-white md:text-[34px]">
-            Take a peep at what goes on at MustTech!
+            Take a peep at what goes on at <span className="text-customred">MustTech! </span> 
           </h2>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -459,13 +460,13 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
       {/* carousal section  */}
 
-      <section className="bg-black px-6 py-20">
+      <section className="bg-black px-6 py-16 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
-            <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mb-4 text-3xl font-bold text-white md:text-5xl">
               {`Don't just take our word for it!`}
             </h2>
-            <p className="text-lg text-gray-400">
+            <p className="text-lg text-white/100 md:text-base">
               See the feedback from your teammates
             </p>
           </div>
@@ -549,36 +550,29 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                   )}
                 </div>
               </div>
-
-
             </div>
           </div>
 
           {/* Navigation */}
           <div className="mx-auto max-w-[848px]  flex items-center justify-between">
-            
-            <div className="text-gray-400">
-           
-                {/* Text */}
-                <div>
-                  {currentIndex + 1}/{testimonials.length} Testimonials
-                </div>
+            <div className="text-white/100">
+              {/* Text */}
+              <div>
+                {currentIndex + 1}/{testimonials.length} Testimonials
+              </div>
 
-                {/* Progress Bar */}
-                <div className="relative mt-1 w-1/2 h-1 bg-[#4C4C4C] ">
-                  <div
-                    className="absolute top-0 left-0 h-1 bg-white "
-                    style={{
-                      width: `${
-                        ((currentIndex + 1) / testimonials.length) * 100
-                      }%`,
-                    }}
-                  ></div>
-                </div>
-           
+              {/* Progress Bar */}
+              <div className="relative mt-1 w-1/2 h-1 bg-[#4C4C4C] ">
+                <div
+                  className="absolute top-0 left-0 h-1 bg-white "
+                  style={{
+                    width: `${
+                      ((currentIndex + 1) / testimonials.length) * 100
+                    }%`,
+                  }}
+                ></div>
+              </div>
             </div>
-
-
 
             <button
               onClick={nextTestimonial}
@@ -598,9 +592,8 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute inset-x-0 top-0 w-full "
-          width="1440"
-          height="779"
+          className="absolute inset-x-0 top-0 w-[1500px] md:w-full"
+      
           viewBox="0 0 1440 779"
           fill="none"
         >
@@ -649,11 +642,11 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
         {/* Content heading*/}
 
-        <div className="mx-auto text-center max-w-4xl relative mt-64 ">
-          <div className=" text-white text-5xl font-bold mb-7">
-            How to become a musttecher?
+        <div className="mx-auto text-center px-6 max-w-4xl relative mt-32 md:mt-64 ">
+          <div className=" text-white text-3xl font-bold mb-4 md:mb-7 md:text-5xl">
+            How to become a musttecher? 
           </div>
-          <div className=" opacity-60 text-center text-white text-xl font-normal tracking-tight">
+          <div className=" opacity-80 text-center text-white text-base md:text-xl font-normal tracking-tight">
             Joining us couldn't be easier! Check out our application process
             down below. If you have the talent we need, then we'll be meeting
             you soon!
@@ -662,16 +655,17 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
         {/* Content bar*/}
 
-        <div className="relative mx-auto max-w-7xl px-6 py-20 mt-20">
+        <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-20 mt-10 md:mt-20">
           {/* Timeline */}
           <div className="relative">
+            
             {/* Vertical Line */}
             <div className="absolute left-1/2 h-full w-1.5 -translate-x-1/2 bg-[#ADADAD]" />
 
             {/* Steps */}
             <div className="relative space-y-8">
               {steps.map((step, index) => (
-                <div key={index} className="relative">
+                <div key={index} className="relative group">
                   <div
                     className={`flex   ${
                       step.alignLeft ? "flex-row-reverse" : ""
@@ -679,25 +673,29 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                   >
                     {/* Content */}
                     <div
-                      className={`w-1/2 ${
-                        step.alignLeft ? "pl-10 text-left" : "pr-10 text-right"
+                      className={`w-1/2   ${
+                        step.alignLeft ? " pl-4 md:pl-10 text-left" : "pr-4 md:pr-10  text-right"
                       }`}
                     >
-                      <h3 className="mb-2 text-xl font-bold text-white">
+                      <h3 className="mb-2 text-sm md:text-xl font-bold text-white transition-all duration-500 ease-in-out group-hover:text-customred">
                         {step.title}
                       </h3>
-                      <p className="text-gray-400">{step.description}</p>
+                      <p className="text-white/100 text-xs md:text-base">{step.description}</p>
                     </div>
 
                     {/* Circle */}
                     <div
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-normal ${
-                        step.isRed
-                          ? "bg-white  shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] border-4 border-[#ec2027]"
-                          : "bg-white text-black"
+                      className={`flex h-8 w-8 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full text-xl font-normal transition-all duration-500 ease-in-out group-hover:shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] group-hover:border-4 group-hover:border-[#ec2027]  ${
+                        // step.isRed
+                        // ? "bg-white  shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] border-4 border-[#ec2027]"
+                        // :
+                        "bg-white text-black"
                       }`}
                     >
+                      <span className="text-sm md:text-base">
                       {step.number}
+
+                      </span>
                     </div>
 
                     {/* Spacer */}
@@ -706,45 +704,31 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                 </div>
               ))}
 
-              {/* Final Step */}
-              {/* <div className="flex justify-center">
-                                <div className="flex  items-center">
-                                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white p-3 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)]">
-                                        <span className="text-2xl">🤝</span>
-                                    </div>
-
-                                    <h3 className="mt-4 text-xl font-bold text-red-500">
-                                        Start a new journey!
-                                    </h3>
-                                </div>
-                            </div> */}
-
-              <div className="flex  items-end ">
-                <div className="w-1/2 pr-10 text-right">
-                  <h3 className="mb-2 text-xl font-bold text-customred">
+              <div className="flex  items-end group">
+                <div className="w-1/2 pr-4 md:pr-10 text-right group">
+                  <h3 className="md:mb-3  text-base md:text-xl  font-bold text-customred transition-all duration-500 ease-in-out   md:group-hover:scale-105 group-hover:mr-0 md:group-hover:mr-5">
                     Start a new journey!
                   </h3>
                 </div>
-                {/* <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-normal bg-white text-black">
-                                    06
-                                </div> */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white p-3 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)]">
-                  <span className="text-2xl">🤝</span>
+
+                <div className="flex  w-10 h-10 md:h-14 md:w-14 items-center justify-center rounded-full bg-white p-3 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] group-hover:shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] group-hover:border-4 group-hover:border-[#ec2027]  ">
+                  <span className="text-base md:text-2xl  ">🤝</span>
                 </div>
 
                 <div className="w-1/2"></div>
               </div>
             </div>
+
           </div>
         </div>
+
       </section>
 
       {/* job listing section  */}
-
-      <section className="bg-black px-6 py-20">
+      <section className="bg-black px-6 py-16 md:py-20">
         <div className="mx-auto container">
-          <h2 className="mb-20 text-center text-4xl font-bold text-white md:text-5xl">
-            We have {positions.length} open positions now!
+          <h2 className="mb-14 md:mb-20 text-center text-4xl font-bold text-white md:text-5xl">
+            We have <span className="text-customred">{positions.length}</span>  open positions now!
           </h2>
 
           <div className="grid gap-8 lg:grid-cols-[300px,1fr]">
@@ -757,13 +741,13 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                   className={`w-full  px-6 py-3 text-left transition-colors ${
                     selectedDepartment === dept.name
                       ? " text-xl bg-white shadow-[-6px_0px_0px_0px_rgba(236,32,39,1.00)] "
-                      : " text-base text-white/60 hover:bg-gray-800"
+                      : " text-base text-white/100 hover:bg-gray-800"
                   }`}
                 >
                   {dept.name} ({dept.count})
                 </button>
               ))}
-              <div className="mt-9 p-4 text-base text-white/60">
+              <div className="mt-9 p-4 text-base text-white/100">
                 We are always seeking talented people. In case you cannot find
                 your desired position here, please send us your LinkedIn profile
                 and give us your contact information. We will be in touch.
@@ -819,13 +803,13 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
       {/* blog stories section  */}
 
-      <section className="bg-[#0F0F0F] px-6 py-20">
+      <section className="bg-[#0F0F0F] px-6 py-16 md:py-20">
         <div className="mx-auto container">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-5xl  text-white md:text-5xl">
-              Stories by MustTechers!
+              Stories by <span className="text-customred"> MustTechers! </span>
             </h2>
-            <p className="text-xl text-gray-400">Read more on our blog</p>
+            <p className="text-xl text-white/100">Read more on our blog</p>
           </div>
 
           <Swiper
@@ -844,7 +828,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
             {/* Example slides */}
             {blogs.map((blog, index) => (
               <SwiperSlide key={index}>
-                <div key={index} className="group overflow-hidden  bg-white/10">
+                <div key={index} className="group overflow-hidden bg-white/10 ">
                   <div className="relative h-[200px] w-full overflow-hidden">
                     <img
                       src={`/images${blog.image}.svg`}
@@ -899,9 +883,9 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
             <div
               className={`group  relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-2 md:row-span-2`}
             >
-              <div className="text-white text-6xl ">
+              <div className="text-white text-5xl md:text-6xl">
                 <h3>
-                  <span className="font-bold"> Follow us </span>{" "}
+                  <span className="font-bold text-customred"> Follow us </span>
                   {`on social to see what we're up to!`}
                 </h3>
               </div>
@@ -911,7 +895,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
             {/* image 2 */}
             <div
-              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-1 md:row-span-3`}
+              className={`group lg:mt-10 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-1 md:row-span-3`}
             >
               <img
                 src={`/images/gallery/image1.png`}
@@ -925,9 +909,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
             </div>
 
             {/* image 3 */}
-            <div
-              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-1 md:row-span-4`}
-            >
+            <div className={`group lg:mt-10 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-1 md:row-span-4`}>
               <img
                 src={`/images/gallery/image2.png`}
                 alt="jh"
@@ -940,9 +922,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
             </div>
 
             {/* image 4 */}
-            <div
-              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-2 md:row-span-2`}
-            >
+            <div className={`group lg:mt-10 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-2 md:row-span-2`}>
               <img
                 src={`/images/gallery/image3.png`}
                 alt="jh"
@@ -1101,6 +1081,8 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
           </div>
         </div>
       </section>
+
+      <ReasonSection />
     </div>
   );
 }

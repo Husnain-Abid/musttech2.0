@@ -12,13 +12,13 @@ export default function TrustedBrands() {
   ]
 
   return (
-    <section className="bg-black pt-20 pb-28 overflow-hidden">
+    <section className="bg-black py-16 md:pt-20 md:pb-28 overflow-hidden">
       <div className="mx-auto container px-6">
         <div className="mb-16 grid gap-8 lg:grid-cols-2">
           <h2 className="text-4xl font-bold text-white md:text-4xl lg:text-4xl lg:leading-[56px]">
             Trusted by 200+ companies around the world
           </h2>
-          <p className="text-base text-white/60 font-normal">
+          <p className="text-base text-white/100 font-normal">
             With over 200 companies worldwide placing their trust in us, MustTech Solutions
             has become a global partner for innovation and reliability. From custom software
             to cutting-edge web and mobile solutions, we empower businesses with

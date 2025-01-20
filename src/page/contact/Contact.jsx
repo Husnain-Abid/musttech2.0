@@ -237,11 +237,11 @@ export default function Contact() {
                     <label className="text-sm text-white">
                       Select Subject?
                     </label>
-                    <div className="flex flex-wrap justify-between">
+                    <div className="flex flex-wrap justify-between gap-4">
                       {subjects.map((subject) => (
                         <label
                           key={subject}
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-2 "
                         >
                           <input
                             type="radio"
