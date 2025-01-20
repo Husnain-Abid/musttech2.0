@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function WhyChoose() {
   return (
-    <section className="bg-black py-20 lg:pt-20 lg:pb-28">
+    <section className="bg-black py-16 md:pt-20 lg:pt-20 lg:pb-28">
       <div className="mx-auto container px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Illustration */}
@@ -21,7 +21,7 @@ export default function WhyChoose() {
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               Why choose us
             </h2>
-            <p className="mb-8 text-base font-normal text-white/60">
+            <p className="mb-8 text-base font-normal text-white/100">
               Choose us for our unique blend of expertise, creativity, and
               dedication. We understand your business goals and work tirelessly
               to create tailored solutions that drive real results. With a focus

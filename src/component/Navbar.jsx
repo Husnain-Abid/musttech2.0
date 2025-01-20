@@ -13,8 +13,7 @@ export default function Navbar() {
         <img
           src="/images/logo.svg"
           alt="Company Logo"
-          width={235}
-          height={52}
+      className="max-w-[180px] md:max-w-[235px]"
         />
       </Link>
 
@@ -121,35 +120,35 @@ export default function Navbar() {
             <div className="pl-4 flex flex-col gap-2">
               <Link
                 to="/services/web-development"
-                className="text-gray-400 hover:text-gray-100"
+                className="text-white/100 hover:text-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Web Development
               </Link>
               <Link
                 to="/services/mobile-app"
-                className="text-gray-400 hover:text-gray-100"
+                className="text-white/100 hover:text-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Mobile App
               </Link>
               <Link
                 to="/services/branding"
-                className="text-gray-400 hover:text-gray-100"
+                className="text-white/100 hover:text-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Branding
               </Link>
               <Link
                 to="/services/digital-marketing"
-                className="text-gray-400 hover:text-gray-100"
+                className="text-white/100 hover:text-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Digital Marketing
               </Link>
               <Link
                 to="/services/seo"
-                className="text-gray-400 hover:text-gray-100"
+                className="text-white/100 hover:text-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 SEO

@@ -47,22 +47,24 @@ The result? A website that not only looks incredible but functions flawlessly—
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
+        to: "/services/mobile-app",
       },
       {
         icon: "logo5",
         title: "SEO",
         description:
           "We optimize your online presence to ensure you stand out and rank high where it matters most.",
+        to: "/services/seo",
       },
       {
         icon: "logo6",
         title: "Customer services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
+        to: "/services/custom-service",
       },
     ],
   },
-
 
   "mobile-app": {
     data: {
@@ -80,7 +82,7 @@ The result? A website that not only looks incredible but functions flawlessly—
       <br/>Next, our designers create intuitive interfaces that prioritize seamless navigation and an engaging user experience. Meanwhile, our developers build a robust and scalable backend, ensuring the app performs flawlessly across all devices.
       <br/>We rigorously test the app for functionality, security, and performance, refining every detail before launch. Post-launch, we provide ongoing support and updates to keep your app ahead in a rapidly evolving digital landscape.
       <br/>With our process, we don’t just build apps; we create solutions that connect, engage, and empower your audience.`,
-          },
+    },
     projects: [
       {
         title: "SAS Mobile Development",
@@ -104,24 +106,26 @@ The result? A website that not only looks incredible but functions flawlessly—
         title: "Branding",
         description:
           "We shape identities that speak volumes, leaving impressions that stand the test of time.",
+        to: "/services/branding",
       },
       {
         icon: "logo2",
         title: "Web development",
         description:
           "Forging digital landscapes where connections thrive and visions come to life.",
+        to: "/services/web-development",
       },
       {
         icon: "logo3",
         title: "Digital marketing",
         description:
           "We craft strategies that make your brand unforgettable in the digital world.",
+        to: "/services/digital-marketing",
       },
     ],
   },
 
-
-  "branding": {
+  branding: {
     data: {
       slug: "branding",
       page: "Branding",
@@ -160,22 +164,24 @@ The result? A website that not only looks incredible but functions flawlessly—
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
-      },
+          to: "/services/mobile-app",
+        },
       {
         icon: "logo5",
         title: "SEO",
         description:
           "We optimize your online presence to ensure you stand out and rank high where it matters most.",
-      },
+          to: "/services/seo",
+        },
       {
         icon: "logo6",
         title: "Customer services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
-      },
+          to: "/services/custom-service",
+        },
     ],
   },
-
 
   "digital-marketing": {
     data: {
@@ -217,23 +223,26 @@ The result? A website that not only looks incredible but functions flawlessly—
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
-      },
+          to: "/services/mobile-app",
+        },
       {
         icon: "logo5",
         title: "SEO",
         description:
           "We optimize your online presence to ensure you stand out and rank high where it matters most.",
-      },
+          to: "/services/seo",
+        },
       {
         icon: "logo6",
         title: "Customer services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
-      },
+          to: "/services/custom-service",
+        },
     ],
   },
 
-  "seo": {
+  seo: {
     data: {
       slug: "seo",
       page: "SEO",
@@ -273,18 +282,21 @@ The result? A website that not only looks incredible but functions flawlessly—
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
+        to: "/services/mobile-app",
       },
       {
         icon: "logo2",
         title: "Web developement",
         description:
           "Forging digital landscapes where connections thrive and visions come to life.",
+        to: "/services/web-development",
       },
       {
         icon: "logo6",
         title: "Customer services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
+        to: "/services/custom-service",
       },
     ],
   },
@@ -300,16 +312,18 @@ export default function Services() {
 
   if (!service) {
     return (
-      <div className="container mx-auto px-6 py-10">
-        <h1 className="text-center text-2xl font-bold text-red-500">
+      <div className="container mx-auto px-6 py-10 min-h-[63vh] flex flex-col justify-around">
+        <h1 className="text-center text-2xl font-bold text-customred ">
           Service not found
         </h1>
-        <Link
-          to="/"
-          className="mt-4 inline-block rounded-full border border-gray-800 px-6 py-3 text-sm font-medium text-gray-800 hover:bg-gray-800 hover:text-white"
-        >
-          Go to Home
-        </Link>
+        <div>
+          <Link
+            to="/"
+            className="mt-4 inline-block rounded-full border border-customred px-6 py-3 text-sm font-medium text-customred hover:bg-customred hover:text-white"
+          >
+            Go to Home
+          </Link>
+        </div>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function ReasonSection() {
   return (
-    <section className="relative min-h-[400px]  bg-black px-6 py-20 overflow-hidden">
+    <section className="relative min-h-[400px]  bg-black px-6 py-16 md:py-20 overflow-hidden">
       {/* Content */}
       <div className="relative mx-auto container flex flex-wrap justify-between">
         <div className="max-w-2xl">

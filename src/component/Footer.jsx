@@ -51,7 +51,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="font-medium text-white/60 transition-colors hover:text-white"
+                    className="font-medium text-white/100 transition-colors hover:text-customred"
                   >
                     {link.name}
                   </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="font-medium text-white/60 transition-colors hover:text-white"
+                    className="font-medium text-white/100 transition-colors hover:text-customred"
                   >
                     {link.name}
                   </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="font-medium text-white/60 transition-colors hover:text-white"
+                    className="font-medium text-white/100 transition-colors hover:text-customred"
                   >
                     {link.name}
                   </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="font-medium text-white/60 transition-colors hover:text-white"
+                    className="font-medium text-white/100 transition-colors hover:text-customred"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -128,7 +128,7 @@ export default function Footer() {
 
 
             </Link>
-            <p className="mb-6 text-sm text-white/60">Get latest updates</p>
+            <p className="mb-6 text-sm text-white/100">Get latest updates</p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
                 type="email"

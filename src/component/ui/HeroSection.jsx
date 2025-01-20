@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function HeroSection({ data }) {
   return (
-    <section className="relative min-h-[600px] bg-black overflow-hidden">
+    <section className="relative min-h-[500px] md:min-h-[600px] bg-black overflow-hidden">
       {/* Grid Pattern */}
       <div
         className="absolute inset-0 opacity-20"
@@ -94,14 +94,14 @@ export default function HeroSection({ data }) {
       </svg>
 
       {/* Content */}
-      <div className="relative mx-auto container px-6 py-20">
+      <div className="relative mx-auto container px-6 py-16 md:py-20">
         <span className="mb-5 inline-block text-2xl font-bold text-customred">
           {data.page}
         </span>
         <h1 className="mb-6 text-5xl font-bold text-white md:text-6xl lg:text-7xl">
           {data.title}
         </h1>
-        <p className="mb-8 text-sm max-w-[523px]  font-normal leading-relaxed text-white/60 md:text-base">
+        <p className="mb-8 text-sm max-w-[523px]  font-normal leading-relaxed text-white/100 md:text-base">
           {data.description}
         </p>
         <Link

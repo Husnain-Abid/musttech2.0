@@ -51,7 +51,6 @@ Explore our portfolio to see how we’ve transformed ideas into success stories,
       category: "DASHBOARD",
       image: "/portfolio/portfolio5",
       link: "https://amnaismail.com/",
-
     },
     {
       title: "Creative landing page",
@@ -90,7 +89,7 @@ Explore our portfolio to see how we’ve transformed ideas into success stories,
           <Content data={content} />
         </div>
 
-        <div className="mt-24 mb-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="py-16 md:mt-24 md:mb-14 grid gap-4 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <ProfileCard key={index} project={project} />
           ))}
