@@ -55,6 +55,7 @@ export default function Contact() {
 
       // Show a success toast notification
       // toast.success(response.data.message);
+console.log(response);
 
       // Clear form fields
       // resetForm();
