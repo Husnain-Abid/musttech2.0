@@ -58,24 +58,24 @@ Explore our portfolio to see how we’ve transformed ideas into success stories,
       image: "/portfolio/portfolio6",
       link: "https://tashudistribution.com/",
     },
-    {
-      title: "SAS Logistics",
-      category: "BRANDING",
-      image: "/portfolio/portfolio7",
-      link: "/projects/sas-logistics",
-    },
-    {
-      title: "MustTech",
-      category: "BRANDING",
-      image: "/portfolio/portfolio8",
-      link: "/projects/musttech",
-    },
-    {
-      title: "ArtGarage",
-      category: "BRANDING",
-      image: "/portfolio/portfolio9",
-      link: "/projects/artgarage",
-    },
+    // {
+    //   title: "SAS Logistics",
+    //   category: "BRANDING",
+    //   image: "/portfolio/portfolio7",
+    //   link: "/projects/sas-logistics",
+    // },
+    // {
+    //   title: "MustTech",
+    //   category: "BRANDING",
+    //   image: "/portfolio/portfolio8",
+    //   link: "/projects/musttech",
+    // },
+    // {
+    //   title: "ArtGarage",
+    //   category: "BRANDING",
+    //   image: "/portfolio/portfolio9",
+    //   link: "/projects/artgarage",
+    // },
   ];
 
   return (

@@ -11,7 +11,7 @@ const services = [
     icon: "logo2",
     title: "Web development",
     description: "Forging digital landscapes where connections thrive and visions come to life.",
-    to:"/services//web-development"
+    to:"/services/web-development"
   },
   {
     icon: "logo3",
@@ -33,9 +33,9 @@ const services = [
   },
   {
     icon: "logo6",
-    title: "Customer services",
+    title: "CRO services",
     description: "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
-    to:"/services/branding"
+    to:"/services/cro"
   },
 ];
 

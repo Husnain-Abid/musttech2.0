@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import {
   Clock3,
   Dumbbell,
@@ -30,6 +29,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import ReasonSection from "../../component/ReasonSection";
+
+import image1 from "../../assets/Img1.png";
+import image2 from "../../assets/Img2.png";
+import image3 from "../../assets/Img3.png";
+import image4 from "../../assets/Img4.png";
+import image5 from "../../assets/Img5.png";
+import image6 from "../../assets/Img6.png";
+import image7 from "../../assets/Img7.png";
 
 export default function Careers() {
   const data = {
@@ -105,37 +112,37 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
   const images = [
     {
-      src: "/gallery/img1",
+      src: image1,
       alt: "Developers working at their desks surrounded by plants",
       className: "col-span-1 row-span-1 md:col-span-2 md:row-span-2",
     },
     {
-      src: "/gallery/img2",
+      src: image2,
       alt: "Team member smiling in modern office space",
       className: "col-span-1 row-span-1",
     },
     {
-      src: "/gallery/img3",
+      src: image3,
       alt: "Modern office interior with colorful furniture",
       className: "col-span-1 row-span-1 md:row-span-2",
     },
     {
-      src: "/gallery/img6",
+      src: image6,
       alt: "Team members collaborating at desk",
       className: "col-span-1 row-span-1 md:row-span-2",
     },
     {
-      src: "/gallery/img4",
+      src: image4,
       alt: "Comfortable meeting area in office",
       className: "col-span-1 row-span-1",
     },
     {
-      src: "/gallery/img5",
+      src: image5,
       alt: "Team discussion in modern office setting",
       className: "col-span-1 row-span-1",
     },
     {
-      src: "/gallery/img7",
+      src: image7,
       alt: "Team discussion in modern office setting",
       className: "col-span-1 row-span-1",
     },
@@ -387,11 +394,11 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       {/* benefits section  */}
       <section className="bg-black px-6 pt-16 md:pt-20 pb-10">
         <div className="mx-auto container">
-          <div className="mb-9">
+          <div className="mb-9 text-center">
             <h2 className="mb-4 text-2xl font-bold text-white md:text-2xl">
               What benefits are waiting for you?
             </h2>
-            <p className="text-base text-white ">
+            <p className="text-base text-white">
               <span className="text-base font-bold"> MustTech </span> offers a
               variety of hand-picked benefits that you can take advantage of!
             </p>
@@ -400,28 +407,24 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
           <div className="grid gap-3 md:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
-              const isEven = index % 2 === 0; // Check if the index is even
+              const isEven = index % 2 === 0;
 
               return (
                 <div
                   key={index}
-                  className={`group relative flex items-center gap-3 overflow-hidden rounded-sm px-4 pt-5 pb-9  transition-all ${
-                    isEven
-                      ? "bg-gradient-to-b from-[#ec2027] to-sky-50 hover:bg-gradient-to-t hover:to-sky-50 hover:from-[#ec2027]"
-                      : "bg-gradient-to-t from-[#ec2027] to-sky-50 hover:bg-gradient-to-b hover:to-sky-50 hover:from-[#ec2027]"
-                  }`}
+                  className="group relative flex flex-col justify-center items-center text-center gap-3 overflow-hidden rounded-sm px-4 pt-5 pb-9 transition-all bg-white"
                 >
-                  <div className=" ">
-                    {/* <Icon className="h-8 w-8 text-white" /> */}
-                    <img
-                      src={`/images${Icon}.svg`}
-                      alt={Icon}
-                      width={42}
-                      height={42}
-                      className="h-auto w-full transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <h3 className="text-base font-normal text-white">
+                  {/* Blurry hover effect */}
+                  <div className="absolute w-72 h-72 bg-gradient-to-r from-white to-[#dd0c13] opacity-0 group-hover:opacity-80 transition-opacity rounded-full filter blur-2xl"></div>
+
+                  <img
+                    src={`/images${Icon}.svg`}
+                    alt={Icon}
+                    width={42}
+                    height={42}
+                    className="h-auto w-auto transition-transform duration-300 group-hover:scale-105 filter brightness-0 relative z-10"
+                  />
+                  <h3 className="text-base font-bold text-black relative z-10">
                     {benefit.title}
                   </h3>
                 </div>
@@ -445,7 +448,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                 className={`group relative overflow-hidden rounded-sm ${image.className}`}
               >
                 <img
-                  src={`/images${image.src}.svg`}
+                  src={image.src}
                   alt={image.alt}
                   width={800}
                   height={600}
@@ -593,7 +596,6 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="absolute inset-x-0 top-0 w-[1500px] md:w-full"
-      
           viewBox="0 0 1440 779"
           fill="none"
         >
@@ -658,7 +660,6 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
         <div className="relative mx-auto max-w-7xl px-6 py-16 md:py-20 mt-10 md:mt-20">
           {/* Timeline */}
           <div className="relative">
-            
             {/* Vertical Line */}
             <div className="absolute left-1/2 h-full w-1.5 -translate-x-1/2 bg-[#ADADAD]" />
 
@@ -674,13 +675,17 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                     {/* Content */}
                     <div
                       className={`w-1/2   ${
-                        step.alignLeft ? " pl-4 md:pl-10 text-left" : "pr-4 md:pr-10  text-right"
+                        step.alignLeft
+                          ? " pl-4 md:pl-10 text-left"
+                          : "pr-4 md:pr-10  text-right"
                       }`}
                     >
                       <h3 className="mb-2 text-sm md:text-xl font-bold text-white group-hover:text-customred">
                         {step.title}
                       </h3>
-                      <p className="text-white/100 text-xs md:text-base">{step.description}</p>
+                      <p className="text-white/100 text-xs md:text-base">
+                        {step.description}
+                      </p>
                     </div>
 
                     {/* Circle */}
@@ -718,7 +723,6 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                 <div className="w-1/2"></div>
               </div>
             </div>
-
           </div>
         </div>
       </section>

@@ -32,16 +32,17 @@ export default function TrustedBrands() {
             {topRowLogos.map((logo, index) => (
               <div
                 key={index}
-                className="mx-4 flex h-20 min-w-[192px] items-center justify-center rounded-lg border border-gray-800 bg-gray-900/50 "
+                className="mx-4 flex h-20 min-w-[192px] items-center justify-center rounded-lg border border-[#110f0f]  bg-[#444746] "
               >
                 {/* <span className="text-xl font-semibold text-white">{logo}</span> */}
 
                 <img
-                  src={`/images/brands/${logo}.svg`} // Use the image path from the array
+                  src={`/images/brands/${logo}.png`} // Use the image path from the array
                   alt={`Logo ${index + 1}`} // Unique alt text for accessibility
                   width={150} // Set desired width
                   height={40} // Set desired height
                   priority // Optional: Preload the image
+                  className = "object-contain p-6"
                 />
 
               </div>
@@ -55,15 +56,16 @@ export default function TrustedBrands() {
             {bottomRowLogos.map((logo, index) => (
               <div
                 key={index}
-                className="mx-4 flex h-20 min-w-[192px] items-center justify-center rounded-lg border border-gray-800 bg-gray-900/50 "
+                className="mx-4 flex h-20 min-w-[192px] items-center justify-center rounded-lg border border-[#110f0f]   bg-[#444746] "
               >
 
 <img
-                  src={`/images/brands/${logo}.svg`} // Use the image path from the array
+                  src={`/images/brands/${logo}.png`} // Use the image path from the array
                   alt={`Logo ${index + 1}`} // Unique alt text for accessibility
                   width={150} // Set desired width
                   height={40} // Set desired height
                   priority // Optional: Preload the image
+                  className = "object-contain p-6"
                 />
 
                 {/* <span className="text-xl font-semibold text-white">{logo}</span> */}

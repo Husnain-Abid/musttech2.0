@@ -5,6 +5,7 @@ import { PaperclipIcon as PaperAirplane } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../utils/API_URL";
+import { toast } from "react-toastify";
 
 export default function Contact() {
   const data = {
@@ -54,14 +55,19 @@ export default function Contact() {
       setLoading(false); // Set loading to true when the request starts
 
       // Show a success toast notification
+      toast.success(response.data.message);
+
+
+      // Show a success toast notification
       // toast.success(response.data.message);
-console.log(response);
 
       // Clear form fields
       // resetForm();
     } catch (error) {
       // toast.error('There was an error submitting your form.');
       console.log("error is in contact");
+      toast.error('There was an error submitting your form.');
+      // console.log("error is in contact");
     }
   };
 
@@ -219,7 +225,7 @@ console.log(response);
                         Phone Number
                       </label>
                       <div className="flex items-center border-b border-white focus-within:border-red-500">
-                        <span className="text-gray-500">+91</span>
+                        <span className="text-gray-500">+1</span>
                         <input
                           type="tel"
                           id="phone"
