@@ -1,14 +1,36 @@
+import axios from 'axios';
 import { useState } from 'react'
+import { API_URL } from '../../utils/API_URL';
+import { toast } from 'react-toastify';
 
 export default function CtaSection() {
     const [email, setEmail] = useState('')
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        // Handle form submission logic here
-        console.log('Email submitted:', email)
-        setEmail('')
-    }
+ 
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        // Handle email submission logic here
+        console.log("Email submitted:", email);
+    
+        try {
+     
+          const response = await axios.post(`${API_URL}/contact/post`, email);
+     
+          // Show a success toast notification
+          toast.success(response.data.message);
+    
+          // Clear form fields
+          // resetForm();
+        } catch (error) {
+          toast.error('There was an error submitting your form.');
+          // console.log("error is in contact");
+        }
+    
+
+        setEmail("");
+      };
+    
+    
 
     const scrollToTop = () => {
         window.scrollTo({
