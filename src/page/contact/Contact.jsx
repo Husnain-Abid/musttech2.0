@@ -45,35 +45,35 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
 
     try {
-      setLoading(true); // Set loading to true when the request starts
+      setLoading(true); // ✅ Set loading to true when request starts
 
       const response = await axios.post(`${API_URL}/contact/post`, formData);
-      setLoading(false); // Set loading to true when the request starts
 
-      // Show a success toast notification
-      toast.success(response.data.message);
-
-
-      // Show a success toast notification
-      // toast.success(response.data.message);
-
-      // Clear form fields
-      // resetForm();
+      toast.success(response.data.message); // ✅ Success toast message
     } catch (error) {
-      // toast.error('There was an error submitting your form.');
-      console.log("error is in contact");
-      toast.error('There was an error submitting your form.');
-      // console.log("error is in contact");
+      console.error("Error in contact form submission:", error);
+      toast.error("There was an error submitting your form.");
+    } finally {
+      // ✅ Reset the form fields after successful submission or failure
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        subject: "General Inquiry",
+        message: "",
+      });
+
+      setLoading(false); // ✅ Ensure loading state is set to false
     }
   };
 
   return (
     <div>
-      <HeroSection data={data} />
+      {/* <HeroSection data={data} /> */}
 
       <section className="bg-[#0F0F0F] container mx-auto px-6 py-10 lg:py-[58px] ">
         <div className=" space-y-10  lg:space-y-20">
@@ -101,7 +101,23 @@ export default function Contact() {
                         fill="white"
                       />
                     </svg>
-                    <span>+92 302-6666400</span>
+
+
+                    {/* <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                    >
+                      <path
+                        d="M20.52 3.48C18.44 1.4 15.68 0 12.64 0C5.96 0 0.72 5.24 0.72 11.92C0.72 14.48 1.6 16.92 3.12 18.96L2.08 23.6L6.92 22.28C8.8 23.28 10.68 23.84 12.64 23.84C19.32 23.84 24.56 18.6 24.56 11.92C24.56 8.88 23.16 6.12 21.08 4.04L20.52 3.48ZM12.64 21.12C11 21.12 9.48 20.72 8.04 20.08L7.52 19.84L4.48 20.68L5.24 17.72L4.96 17.2C3.52 15.4 2.8 13.64 2.8 11.92C2.8 6.8 7.48 2.64 12.64 2.64C14.88 2.64 16.96 3.52 18.6 5.08C20.24 6.64 21.12 8.72 21.12 10.96C21.12 16.08 16.44 21.12 12.64 21.12ZM17.2 14.68C16.92 14.48 15.52 13.72 15.24 13.6C14.96 13.48 14.76 13.44 14.56 13.76C14.36 14.08 13.88 14.68 13.68 14.92C13.48 15.16 13.28 15.2 12.96 15C12.64 14.8 11.6 14.36 10.4 13.24C9.48 12.36 8.88 11.32 8.68 10.96C8.48 10.6 8.68 10.36 8.84 10.2C9 10.04 9.16 9.92 9.36 9.6C9.56 9.28 9.48 9.08 9.4 8.92C9.32 8.76 8.72 7.16 8.52 6.64C8.32 6.12 8.12 6.2 7.92 6.2C7.72 6.2 7.52 6.2 7.32 6.2C7.12 6.2 6.84 6.24 6.64 6.44C6.44 6.64 5.92 7.08 5.92 8.08C5.92 9.08 6.64 10.28 6.8 10.52C6.96 10.76 8.4 13 10.48 14.84C12.56 16.68 14.64 17.36 14.92 17.44C15.2 17.52 15.92 17.4 16.44 16.84C16.96 16.28 17.6 15.48 17.68 15.32C17.76 15.16 17.76 14.88 17.6 14.68Z"
+                        fill="white"
+                      />
+                    </svg> */}
+
+                    {/* <span>+92 302-6666400</span> */}
+                    <span>+1 512 587-9403</span>
                   </div>
 
                   <div className="flex gap-4 mb-16">
@@ -117,7 +133,7 @@ export default function Contact() {
                         fill="white"
                       />
                     </svg>
-                    <span>info@musttechsolutions.com</span>
+                    <span>admin@musttechsolutions.com</span>
                   </div>
 
                   <div className="flex gap-4 mb-56">
@@ -134,7 +150,9 @@ export default function Contact() {
                       />
                     </svg>
                     <span>
-                      Model Town, C-Block <br /> Lahore, Pakistan
+
+                      30 N gold Street Sherdon <br /> Wyoming, US
+
                     </span>
                   </div>
                 </div>
@@ -225,12 +243,13 @@ export default function Contact() {
                         Phone Number
                       </label>
                       <div className="flex items-center border-b border-white focus-within:border-red-500">
-                        <span className="text-gray-500">+1</span>
+                        {/* <span className="text-gray-500">+1</span> */}
                         <input
                           type="tel"
                           id="phone"
                           name="phoneNumber"
-                          value={formData.phone}
+                          placeholder="+1"
+                          value={formData.phoneNumber}
                           onChange={handleChange}
                           required
                           className="w-full bg-transparent pb-2 pl-2 text-white placeholder:text-gray-500 focus:outline-none"
@@ -282,18 +301,28 @@ export default function Contact() {
                   </div>
 
                   {/* Submit button */}
-                  <div className="relative flex justify-center md:justify-end">
+                  <div className="relative flex justify-end">
                     <button
+                      disabled={loading} // Disable the button when submitting
                       type="submit"
-                      className="group mb-10 md:mb-0 gap-2 rounded-md bg-[#1E1E1E] px-12 py-3.5 text-white transition-colors hover:bg-red-600"
+                      className="group mb-10 md:mb-0 gap-2 rounded-md bg-[#1E1E1E] text-sm md:text-base px-8 md:px-12 py-2  md:py-3.5 text-white transition-colors hover:bg-red-600 z-10"
                     >
-                      Send Message
+                      {loading ? "Sending..." : "Send Message"}{" "}
+                      {/* Change button text */}
                     </button>
 
-                    <div className=" hidden lg:block absolute top-5 right-12">
-                      <img alt="whychoose" src="/images/letter_send.svg" />
+                    {/* Letter send image */}
+                    <div className="absolute bottom-0 left-0 rotate-[45deg] sm:top-5 sm:right-12 sm:left-auto sm:rotate-0 transition-all">
+                      <img
+                        alt="whychoose"
+                        src="/images/letter_send.svg"
+                        className="w-32 md:w-60"
+                      />
                     </div>
                   </div>
+
+
+
                 </form>
               </div>
             </div>
@@ -302,7 +331,7 @@ export default function Contact() {
           {/* Home Button */}
           <Link
             to="/"
-            className="inline-block rounded-full border border-white px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
+            className="inline-block rounded-full border border-white px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
           >
             GO TO HOME
           </Link>

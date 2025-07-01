@@ -12,7 +12,7 @@ export default function ProfileCard({project}) {
                 {project.image && (
                     <div className={project.image ? "mb-6 overflow-hidden rounded-s" : ""}>
                         <img
-                            src={`/images${project.image}.svg`}
+                            src={`/images${project.image}.png`}
                             alt={project.title}
                             width={365}
                             height={142}
@@ -21,7 +21,7 @@ export default function ProfileCard({project}) {
                     </div>
                 )}
                 <div className="mb-5">
-                    <span className="inline-block text-xs  font-bold rounded bg-customred px-2 py-1 text-sm font-medium text-black">
+                    <span className="inline-block rounded bg-customred px-2 py-1 text-sm font-medium text-black">
                         {project.category}
                     </span>
                 </div>
@@ -29,7 +29,7 @@ export default function ProfileCard({project}) {
                     {project.title}                                                       
                 </h3>
                 <div className="flex items-center text-[#728095] transition-colors group-hover:text-customred">
-                    Read more
+                    View
                     <CircleArrowRight className="ml-2 h-4 w-4" />
                 </div>
             </Link>

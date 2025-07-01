@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function WhyChoose() {
   return (
-    <section className="bg-black py-16 md:pt-20 lg:pt-20 lg:pb-28">
-      <div className="mx-auto container px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+    <section className="bg-black py-16 md:pt-20 lg:pt-20 lg:pb-28 hidden md:block">
+      <div className="mx-auto container px-6 ">
+        <div className=" grid items-center gap-12 lg:grid-cols-2 ">
           {/* Illustration */}
           <div className="relative">
             <img

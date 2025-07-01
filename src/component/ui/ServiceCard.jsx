@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 export default function ServiceCard({project}) {
     return (
         <>
-            <Link
-                to={project.link}
+            <div
+                // to={project.link}
                 className="group block relative overflow-hidden rounded-s border border-[#A1AEBF]  p-6 transition-colors hover:border-customred"
             >
                 {project.image && (
-                    <div className={project.image ? "mb-6 overflow-hidden rounded-s" : ""}>
+                    <div className={project.image ? "mb-6 overflow-hidden rounded-s h-44" : ""}>
                         <img
                             src={`/images${project.image}.svg`}
                             alt={project.title}
@@ -27,11 +27,11 @@ export default function ServiceCard({project}) {
                 <h3 className="mb-5 text-2xl font-bold text-white">
                     {project.title}                                                       
                 </h3>
-                <div className="flex items-center text-[#728095] transition-colors group-hover:text-customred">
+                {/* <div className="flex items-center text-[#728095] transition-colors group-hover:text-customred">
                     Read more
                     <CircleArrowRight className="ml-2 h-4 w-4" />
-                </div>
-            </Link>
+                </div> */}
+            </div>
         </>
     )
 }

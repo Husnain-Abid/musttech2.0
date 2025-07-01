@@ -9,8 +9,8 @@ const servicesData = {
   "web-development": {
     data: {
       slug: "web-development",
-      page: "Web Development",
-      title: "Find your niche",
+      page: "Find your niche",
+      title: "Web Development",
       description: `Uncover the unique qualities that set your brand apart. Finding your niche is about more than standing out—it’s about connecting with the right audience and delivering value in a way only you can. With our expertise, we’ll help you define your space in the market.`,
       button: "Build my brand",
       color1: "#EC2027",
@@ -32,12 +32,12 @@ const servicesData = {
 
     projects: [
       {
-        title: "SAS Web Development",
+        title: "XmartLabs Web Development",
         category: "Website",
         image: "/serviceDetails/web1",
       },
       {
-        title: "MustTech Web Development",
+        title: "Hydraweld Development",
         category: "Website",
         image: "/serviceDetails/web2",
       },
@@ -59,8 +59,8 @@ const servicesData = {
         description: "Looking to sell online? We create high-performing e-commerce websites using WooCommerce and other leading platforms. From product pages to secure checkout processes, we optimize every aspect of your store for conversions and user engagement.",
       },
       {
-        title: "ArtGarage Web Development",
-        description: "Website",
+        title: "SEO-Friendly Website Development",
+        description: "We build websites with SEO in mind, ensuring that your site is optimized for search engines right from the start. Our clean coding practices and structured layouts help improve your online visibility.",
       },
 
       {
@@ -84,22 +84,21 @@ const servicesData = {
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
-      to:"/services/mobile-app"
-        },
+        to: "/services/mobile-app",
+      },
       {
         icon: "logo5",
         title: "SEO",
         description:
           "We optimize your online presence to ensure you stand out and rank high where it matters most.",
-          to:"/services/seo"
-
+        to: "/services/seo",
       },
       {
         icon: "logo6",
         title: "CRO services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
-          to:"/services/cro"
+        to: "/services/cro",
       },
     ],
   },
@@ -108,8 +107,8 @@ const servicesData = {
   "mobile-app": {
     data: {
       slug: "mobile-app",
-      page: "Mobile App",
-      title: "Find your niche",
+      page: "Find your niche",
+      title: "Mobile App",
       description: `Uncover the unique qualities that set your brand apart. Finding your niche is about more than standing out—it’s about connecting with the right audience and delivering value in a way only you can. With our expertise, we’ll help you define your space in the market.`,
       button: "Build my brand",
       color2: "#EC2027",
@@ -132,17 +131,17 @@ const servicesData = {
 
     projects: [
       {
-        title: "SAS Mobile Development",
+        title: "Zco Corporation Development",
         category: "Website",
         image: "/serviceDetails/mobile1",
       },
       {
-        title: "MustTech Mobile Development",
+        title: "AppsChopper Development",
         category: "Website",
         image: "/serviceDetails/mobile2",
       },
       {
-        title: "ArtGarage Mobile Development",
+        title: "Trango Tech Development",
         category: "Website",
         image: "/serviceDetails/mobile3",
       },
@@ -182,33 +181,31 @@ const servicesData = {
         title: "Branding",
         description:
           "We shape identities that speak volumes, leaving impressions that stand the test of time.",
-          to:"/services/branding"
-
+        to: "/services/branding",
       },
       {
         icon: "logo2",
         title: "Web development",
         description:
           "Forging digital landscapes where connections thrive and visions come to life.",
-          to:"/services/web-development"
+        to: "/services/web-development",
       },
       {
         icon: "logo3",
         title: "Digital marketing",
         description:
           "We craft strategies that make your brand unforgettable in the digital world.",
-          to:"/services/digital-marketing"
-
+        to: "/services/digital-marketing",
       },
     ],
   },
-  
+
 
   "branding": {
     data: {
       slug: "branding",
-      page: "Branding",
-      title: "Find your niche",
+      page: "Find your niche",
+      title: "Branding",
       description: `Uncover the unique qualities that set your brand apart. Finding your niche is about more than standing out—it’s about connecting with the right audience and delivering value in a way only you can. With our expertise, we’ll help you define your space in the market.`,
       button: "Build my brand",
       color1: "#EC2027",
@@ -229,17 +226,17 @@ const servicesData = {
     },
     projects: [
       {
-        title: "SAS Logistics Branding",
+        title: "SAS Branding",
         category: "Website",
         image: "/serviceDetails/brand1",
       },
       {
-        title: "MustTech Branding",
+        title: "Comrad Branding",
         category: "Website",
         image: "/serviceDetails/brand2",
       },
       {
-        title: "ArtGarage Branding",
+        title: "Cotopaxi Branding",
         category: "Website",
         image: "/serviceDetails/brand3",
       },
@@ -280,24 +277,21 @@ const servicesData = {
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
-          to:"/services/mobile-app"
-
+        to: "/services/mobile-app",
       },
       {
         icon: "logo5",
         title: "SEO",
         description:
           "We optimize your online presence to ensure you stand out and rank high where it matters most.",
-          to:"/services/seo"
-
+        to: "/services/seo",
       },
       {
         icon: "logo6",
         title: "CRO services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
-          to:"/services/cro"
-
+        to: "/services/cro",
       },
     ],
   },
@@ -306,7 +300,7 @@ const servicesData = {
   "digital-marketing": {
     data: {
       slug: "digital-marketing",
-      page: "Digital Marketing",
+      page: "Find your niche",
       title: "Digital Marketing",
       description: `Uncover the unique qualities that set your brand apart. Finding your niche is about more than standing out—it’s about connecting with the right audience and delivering value in a way only you can. With our expertise, we’ll help you define your space in the market.`,
       button: "Build my brand",
@@ -328,17 +322,17 @@ const servicesData = {
 
     projects: [
       {
-        title: "SAS Logistics Marketing",
+        title: "SmartSites Marketing",
         category: "Website",
         image: "/serviceDetails/digi1",
       },
       {
-        title: "MustTech Marketing",
+        title: "Netpeak Marketing",
         category: "Website",
         image: "/serviceDetails/digi2",
       },
       {
-        title: "ArtGarage Marketing",
+        title: "Single Grain Marketing",
         category: "Website",
         image: "/serviceDetails/digi3",
       },
@@ -379,32 +373,32 @@ const servicesData = {
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
-          to:"/services/mobile-app"
-
+        to: "/services/mobile-app",
       },
       {
         icon: "logo5",
         title: "SEO",
         description:
           "We optimize your online presence to ensure you stand out and rank high where it matters most.",
-          to:"/services/seo"
+        to: "/services/seo",
       },
       {
         icon: "logo6",
         title: "CRO services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
-          to:"/services/cro"
+        to: "/services/cro",
       },
     ],
   },
+
 
   "seo": {
 
     data: {
       slug: "seo",
-      page: "SEO",
-      title: "Find your niche",
+      page: "Find your niche",
+      title: "SEO",
       description: `Uncover the unique qualities that set your brand apart. Finding your niche is about more than standing out—it’s about connecting with the right audience and delivering value in a way only you can. With our expertise, we’ll help you define your space in the market.`,
       button: "Build my brand",
       color1: "#EC2027",
@@ -457,17 +451,17 @@ const servicesData = {
 
     projects: [
       {
-        title: "SAS Website SEO",
+        title: "Mainstreethost SEO",
         category: "Website",
         image: "/serviceDetails/seo1",
       },
       {
-        title: "MustTech Website SEO",
+        title: "Fatjoe SEO",
         category: "Website",
         image: "/serviceDetails/seo2",
       },
       {
-        title: "ArtGarage Website SEO",
+        title: "Manta SEO",
         category: "Website",
         image: "/serviceDetails/seo3",
       },
@@ -478,24 +472,21 @@ const servicesData = {
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
-          to:"/services/mobile-app"
-
+        to: "/services/mobile-app",
       },
       {
         icon: "logo2",
         title: "Web developement",
         description:
           "Forging digital landscapes where connections thrive and visions come to life.",
-          to:"/services/web-development"
-
+        to: "/services/web-development",
       },
       {
         icon: "logo6",
         title: "CRO services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
-          to:"/services/cro"
-
+        to: "/services/cro",
       },
     ],
   },
@@ -505,8 +496,8 @@ const servicesData = {
 
     data: {
       slug: "CRO",
-      page: "CRO",
-      title: "Find your niche",
+      page: "Find your niche",
+      title: "CRO",
       description: `Uncover the unique qualities that set your brand apart. Finding your niche is about more than standing out—it’s about connecting with the right audience and delivering value in a way only you can. With our expertise, we’ll help you define your space in the market.`,
       button: "Build my brand",
       color1: "#EC2027",
@@ -558,9 +549,9 @@ const servicesData = {
 
 
     projects: [
-      
+
       //Add CRO Work Here
-    
+
     ],
     services: [
       {
@@ -568,24 +559,21 @@ const servicesData = {
         title: "Mobile App",
         description:
           "We build seamless mobile experiences that keep your users engaged, wherever they go.",
-          to:"/services/mobile-app"
-
+        to: "/services/mobile-app",
       },
       {
         icon: "logo2",
         title: "Web developement",
         description:
           "Forging digital landscapes where connections thrive and visions come to life.",
-          to:"/services/web-development"
-
+        to: "/services/web-development",
       },
       {
         icon: "logo6",
         title: "CRO services",
         description:
           "We test and refine your user experience to ensure every interaction is seamless and intuitive.",
-          to:"/services/cro"
-
+        to: "/services/cro",
       },
     ],
   },
@@ -631,7 +619,7 @@ export default function Services() {
 
 
       <section className="bg-[#0F0F0F] px-6 py-10 lg:py-[58px]">
-        <div className="container mx-auto px-6 py-10 space-y-10 lg:space-y-20">
+        <div className="container mx-auto  space-y-10 lg:space-y-20">
           {/* Dynamic Heading */}
           <h2 className="text-[32px] font-bold text-white">{heading}</h2>
 
@@ -654,20 +642,35 @@ export default function Services() {
 
 
 
-      <section className="bg-[#0F0F0F] container mx-auto px-6 py-10 lg:py-[58px]">
-  {/* Conditionally render the title */}
-  {data.slug !== "CRO" && (
-    <h3 className="mb-8 text-customred font-bold text-2xl lg:text-3xl">
-      {data.page} Work
-    </h3>
-  )}
 
-  <div className="mt-5 mb-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-    {projects.map((project, index) => (
-      <ServiceCard key={index} project={project} />
-    ))}
-  </div>
-</section>
+      {data.slug !== "CRO" && (
+
+        <section className="bg-[#0F0F0F] container mx-auto px-6 py-10 lg:py-[58px]">
+          {/* Conditionally render the title */}
+          {data.slug !== "CRO" && (
+            <h3 className="mb-8 text-customred font-bold text-2xl lg:text-3xl">
+              {data.page} Work
+            </h3>
+          )}
+
+          <div className="mt-5 mb-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project, index) => (
+              <ServiceCard key={index} project={project} />
+            ))}
+          </div>
+        </section>
+
+
+      )
+
+
+
+
+
+
+
+      }
+
 
 
 

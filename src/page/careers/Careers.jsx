@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Clock3,
   Dumbbell,
@@ -18,10 +18,13 @@ import {
   ArrowRight,
   Link,
   Linkedin,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import HeroSection from "../../component/ui/HeroSection";
 import Content from "../../component/ui/Content";
-
+import "swiper/css";
+import "swiper/css/navigation";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -54,6 +57,8 @@ export default function Careers() {
 We believe in nurturing talent by providing opportunities to learn, experiment, and excel. With access to cutting-edge tools and a team of passionate professionals, you’ll be part of a journey to create impactful solutions for clients across diverse industries. <br/>
 At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance to make a difference, embrace challenges, and be part of something extraordinary in the ever-evolving digital world.`,
   };
+
+  // benifits section start
 
   const benefits = [
     {
@@ -110,41 +115,89 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
     },
   ];
 
+  const scrollRef = useRef(null);
+  const [scrollStart, setScrollStart] = useState(true);
+  const [scrollEnd, setScrollEnd] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // Function to check scroll position
+  const handleScrollCheck = () => {
+    if (!scrollRef.current) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+
+    setScrollStart(scrollLeft <= 0); // Start reached
+    setScrollEnd(scrollLeft + clientWidth >= scrollWidth - 1); // End reached
+  };
+
+  // Button click scroll function
+  const handleScroll = (direction) => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 200;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
+  // Dragging Functions
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5; // Speed of dragging
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // benifits section end
+
   const images = [
     {
       src: image1,
       alt: "Developers working at their desks surrounded by plants",
-      className: "col-span-1 row-span-1 md:col-span-2 md:row-span-2",
+      className: "col-span-4 row-span-4 md:col-span-2 md:row-span-2",
     },
     {
       src: image2,
       alt: "Team member smiling in modern office space",
-      className: "col-span-1 row-span-1",
+      className: "col-span-1 row-span-1 hidden md:block",
     },
     {
       src: image3,
       alt: "Modern office interior with colorful furniture",
-      className: "col-span-1 row-span-1 md:row-span-2",
+      className: "col-span-1 row-span-1 md:row-span-2 hidden md:block",
     },
     {
       src: image6,
       alt: "Team members collaborating at desk",
-      className: "col-span-1 row-span-1 md:row-span-2",
+      className: "col-span-1 row-span-1 md:row-span-2 hidden md:block",
     },
     {
       src: image4,
       alt: "Comfortable meeting area in office",
-      className: "col-span-1 row-span-1",
+      className: "col-span-1 row-span-1 hidden md:block ",
     },
     {
       src: image5,
       alt: "Team discussion in modern office setting",
-      className: "col-span-1 row-span-1",
+      className: "col-span-2 md:col-span-1 row-span-1 ",
     },
     {
       src: image7,
       alt: "Team discussion in modern office setting",
-      className: "col-span-1 row-span-1",
+      className: "col-span-2 md:col-span-1 row-span-1",
     },
   ];
 
@@ -215,42 +268,42 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
     {
       title: "Full-Stack Developers",
       department: "Engineering",
-      tags: ["Pakistan", "Full-time"],
+      tags: ["Remote", "Full-time"],
       description:
         "Due to growing workload, we are looking for experienced and talented Full-Stack Developers to join our fast-paced Engineering team. You will work closely with Product, Design and Marketing to analyze, develop, debug, test, roll-out and support new and existing product features.",
     },
     {
       title: "Application developer (react native)",
       department: "Engineering",
-      tags: ["Pakistan", "Full-time"],
+      tags: ["Remote", "Full-time"],
       description:
         "Due to growing workload, we are looking for experienced and talented Full-Stack Developers to join our fast-paced Engineering team. You will work closely with Product, Design and Marketing to analyze, develop, debug, test, roll-out and support new and existing product features.",
     },
     {
       title: "Senior Product designer",
       department: "Design",
-      tags: ["Hybrid", "Pakistan", "Full-time"],
+      tags: ["Hybrid", "Remote", "Full-time"],
       description:
         "Since 2019 we've worked on 30+ major projects from 8 different industries that are being used by 500,000+ users and 1000+ businesses from 70+ different countries. Need full-cycle product development or an improvement cycle? Let's talk!",
     },
     {
       title: "Product Manager",
       department: "Operation",
-      tags: ["Remote", "Pakistan", "Full-time"],
+      tags: ["Remote", "Full-time"],
       description:
         "If you are PM and you eager to join our fast-paced Engineering team. You will work closely with Product, Design and Marketing to analyze, develop, debug, test, roll-out and support new and existing product features. 30+ major projects from 8 different industries that are being used by 500,000+ users and 1000+ businesses from 70+ different countries.",
     },
     {
       title: "Product Owner",
       department: "Marketing",
-      tags: ["Pakistan", "Full-time"],
+      tags: ["Remote", "Full-time"],
       description:
         "We've worked on 30+ major projects from 8 different industries that are being . Need full-cycle product development or an improvement cycle? Let's talk!",
     },
     {
       title: "Product Owner",
       department: "Product",
-      tags: ["Pakistan", "Full-time"],
+      tags: ["Remote", "Full-time"],
       description:
         "We've worked on 30+ major projects from 8 different industries that are being . Need full-cycle product development or an improvement cycle? Let's talk!",
     },
@@ -274,7 +327,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       title: "Mobile App Development",
       heading: "How we build the Dagmarket on 6 months",
       description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+        "It is a well-known reality that when a reader encounters a page, their attention is naturally drawn to its readable content rather than its overall layout.The arrangement of text, images, and other elements may serve an aesthetic purpose, but the words themselves hold the primary focus.",
       image: "/blog/blog1",
       author: {
         name: "Kaur Kaljuma",
@@ -287,7 +340,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       title: "Event Technology",
       heading: "The last anoncement for success factory",
       description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+        "It is a well-established fact that when a reader views a page, their focus is naturally drawn to its readable content rather than the overall layout. While the arrangement of text, images, and design elements contributes to aesthetics, the written content remains the primary point of interest.",
       image: "/blog/blog2",
       author: {
         name: "Raigo Tuulik ",
@@ -300,7 +353,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       title: "UI Design Systems",
       heading: "The Role of Repetition in Conversation Design",
       description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+        "It is a well-established fact that when a reader encounters a page, their attention is often drawn to the readable content rather than the overall layout. The structure and design of the page may enhance its visual appeal, but the text itself remains the primary source of engagement.",
       image: "/blog/blog3",
       author: {
         name: "Jüri Siilivask",
@@ -313,7 +366,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       title: "Development Tools",
       heading: "What I Learned From Getting Hired",
       description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+        "It is a long-established fact that when a reader encounters a page, their attention is naturally drawn to its readable content rather than the overall layout. The structure and design may enhance the visual appeal, but the text itself remains the primary focus of engagement.",
       image: "/blog/blog1",
       author: {
         name: "Mazdak Shakiba",
@@ -326,7 +379,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       title: "Development Tools",
       heading: "What I Learned From Getting Hired",
       description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+        "It is a long-established fact that when a reader views a page, they are often distracted by its readable content rather than focusing on the overall layout. While the design and structure contribute to the visual appeal, the text itself remains the central point of engagement.",
       image: "/blog/blog1",
       author: {
         name: "Robert Brown",
@@ -391,45 +444,81 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
         </div>
       </section>
 
-      {/* benefits section  */}
       <section className="bg-black px-6 pt-16 md:pt-20 pb-10">
         <div className="mx-auto container">
-          <div className="mb-9 text-center">
-            <h2 className="mb-4 text-2xl font-bold text-white md:text-2xl">
+          <div className="mb-9 text-start md:text-center">
+            <h2 className="mb-4 text-xl font-bold text-white md:text-2xl">
               What benefits are waiting for you?
             </h2>
-            <p className="text-base text-white">
-              <span className="text-base font-bold"> MustTech </span> offers a
+            <p className="text-sm md:text-base text-white">
+              <span className="text-base font-bold">MustTech</span> offers a
               variety of hand-picked benefits that you can take advantage of!
             </p>
           </div>
 
-          <div className="grid gap-3 md:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              const isEven = index % 2 === 0;
+          {/* Scrollable wrapper */}
+          <div className="relative">
+            {/* Left Button (only visible when scrolled) */}
+            {!scrollStart && (
+              <button
+                onClick={() => handleScroll("left")}
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full z-20 w-10 h-10 flex items-center justify-center"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+            )}
 
-              return (
-                <div
-                  key={index}
-                  className="group relative flex flex-col justify-center items-center text-center gap-3 overflow-hidden rounded-sm px-4 pt-5 pb-9 transition-all bg-white"
-                >
-                  {/* Blurry hover effect */}
-                  <div className="absolute w-72 h-72 bg-gradient-to-r from-white to-[#dd0c13] opacity-0 group-hover:opacity-80 transition-opacity rounded-full filter blur-2xl"></div>
+            {/* Scrollable container */}
+            <div
+              ref={scrollRef}
+              onScroll={handleScrollCheck}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              className="flex gap-5 overflow-x-scroll scrollbar-hide scroll-smooth select-none"
+            >
+              {benefits.map((benefit, index) => {
+                const Icon = benefit.icon;
 
-                  <img
-                    src={`/images${Icon}.svg`}
-                    alt={Icon}
-                    width={42}
-                    height={42}
-                    className="h-auto w-auto transition-transform duration-300 group-hover:scale-105 filter brightness-0 relative z-10"
-                  />
-                  <h3 className="text-base font-bold text-black relative z-10">
-                    {benefit.title}
-                  </h3>
-                </div>
-              );
-            })}
+                return (
+                  <div
+                    key={index}
+                    className="group relative flex flex-col justify-start items-start text-left gap-2 overflow-hidden rounded-lg p-4 transition-all bg-white hover:shadow-md border border-gray-200 w-32 shrink-0 select-none" // ⬅️ Added `select-none`
+                  >
+                    {/* Blurry hover effect */}
+                    <div
+                      className="absolute w-28 h-28 bg-gradient-to-l from-white to-[#dd0c13] opacity-0 group-hover:opacity-60 transition-opacity rounded-full filter blur-xl 
+                      top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    ></div>
+
+                    {/* Icon */}
+                    <img
+                      src={`/images/${Icon}.svg`}
+                      alt={Icon}
+                      width={32}
+                      height={32}
+                      className="h-9 w-9 transition-transform duration-300 group-hover:scale-110 filter brightness-0 relative z-10"
+                    />
+
+                    {/* Title */}
+                    <h3 className="text-xs font-semibold text-black relative z-10">
+                      {benefit.title}
+                    </h3>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Right Button (hidden when scrolled to end) */}
+            {!scrollEnd && (
+              <button
+                onClick={() => handleScroll("right")}
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full z-20 w-10 h-10 flex items-center justify-center"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            )}
           </div>
         </div>
       </section>
@@ -441,7 +530,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
             Take a peep at what goes on at MustTech!
           </h2>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 grid-cols-4">
             {images.map((image, index) => (
               <div
                 key={index}
@@ -463,7 +552,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
       {/* carousal section  */}
 
-      <section className="bg-black px-6 py-16 md:py-20">
+      <section className="bg-black px-6 py-16 md:py-20  hidden md:block ">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
             <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
@@ -588,9 +677,101 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
         </div>
       </section>
 
+      {/* carousal section responsive  */}
+
+      <section className="bg-black px-6 py-16 md:py-20 block md:hidden">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12">
+            <h2 className="mb-4 text-xl font-bold text-white md:text-5xl">
+              {`Don't just take our word for it!`}
+            </h2>
+            <p className="text-sm md:text-lg text-white/100">
+              See the feedback from your teammates
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Main Testimonial Card */}
+            <div className="relative overflow-hidden mx-auto container  z-0">
+              {/* Quote Section */}
+
+              <div className="relative flex flex-col justify-center pl-5   py-8 bg-white ">
+                <div className=" relative mx-auto max-w-[212px]">
+                  <blockquote className="mb-3  text-[10px]  text-gray-900 ">
+                    {testimonials[currentIndex].quote}
+                  </blockquote>
+
+                  <div className="absolute top-0 -left-6  ">
+                    <img
+                      alt="dsfa"
+                      class="object-cover w-4 sm:w-5 md:w-10 "
+                      src="/images/quote1.svg"
+                    ></img>
+                  </div>
+
+                  <div>
+                    <div className="mb-1 text-xs  font-bold text-gray-900">
+                      {testimonials[currentIndex].author}
+                    </div>
+                    <div className="mb-4 text-[10px]  text-gray-900">
+                      {testimonials[currentIndex].role}
+                    </div>
+                  </div>
+                </div>
+
+
+                {/* Other Team Members Strip */}
+                <div className="absolute top-7 -z-10 -right-72  grid-cols-3 overflow-hidden hidden md:block">
+                  {testimonials.map(
+                    (testimonial, index) =>
+                      index !== currentIndex && (
+                        <img
+                          src={`/images/${testimonial.image}.png`}
+                          alt={testimonial.author}
+                          className="object-cover max-w-24 h-[450px]"
+                        />
+                      )
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div className="mx-auto max-w-[848px]  flex items-center justify-between">
+            <div className="text-sm text-white/100">
+              {/* Text */}
+              <div>
+                {currentIndex + 1}/{testimonials.length} Testimonials
+              </div>
+
+              {/* Progress Bar */}
+              <div className="relative mt-1 w-1/2 h-1 bg-[#4C4C4C] ">
+                <div
+                  className="absolute top-0 left-0 h-1 bg-white "
+                  style={{
+                    width: `${
+                      ((currentIndex + 1) / testimonials.length) * 100
+                    }%`,
+                  }}
+                ></div>
+              </div>
+            </div>
+
+            <button
+              onClick={nextTestimonial}
+              className="group flex items-center gap-3 rounded-full text  px-6 py-2 text-white transition-colors  hover:text-red-500"
+            >
+              Next
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* hiriing process section  */}
 
-      <section className="relative min-h-screen overflow-hidden bg-[#0F0F0F]">
+      <section className="relative min-h-screen overflow-hidden hidden md:block bg-[#0F0F0F]">
         {/* Red Gradient Wave */}
 
         <svg
@@ -668,19 +849,19 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
               {steps.map((step, index) => (
                 <div key={index} className="relative group">
                   <div
-                    className={`flex   ${
+                    className={`flex ${
                       step.alignLeft ? "flex-row-reverse" : ""
                     }`}
                   >
                     {/* Content */}
                     <div
-                      className={`w-1/2   ${
+                      className={`w-1/2 ${
                         step.alignLeft
-                          ? " pl-4 md:pl-10 text-left"
-                          : "pr-4 md:pr-10  text-right"
+                          ? "pl-4 md:pl-10 text-left"
+                          : "pr-4 md:pr-10 text-right"
                       }`}
                     >
-                      <h3 className="mb-2 text-sm md:text-xl font-bold text-white group-hover:text-customred">
+                      <h3 className="mb-2 text-sm md:text-xl font-bold text-white transition-all duration-300 ease-in-out group-hover:text-customred">
                         {step.title}
                       </h3>
                       <p className="text-white/100 text-xs md:text-base">
@@ -690,12 +871,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
                     {/* Circle */}
                     <div
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-normal group-hover:shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] group-hover:border-4 group-hover:border-[#ec2027]  ${
-                        // step.isRed
-                        // ? "bg-white  shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] border-4 border-[#ec2027]"
-                        // :
-                        "bg-white text-black"
-                      }`}
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-normal bg-white text-black transition-all duration-300 ease-in-out group-hover:bg-[#ec2027] group-hover:text-white group-hover:shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] group-hover:border-4 group-hover:border-[#ec2027]`}
                     >
                       {step.number}
                     </div>
@@ -706,18 +882,18 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                 </div>
               ))}
 
-              <div className="flex  items-end group">
-                <div className="w-1/2 pr-10 text-right group">
-                  <h3 className="mb-2  text-base md:text-xl  font-bold text-customred transition-transform duration-300 ease-in-out  md:group-hover:scale-100 md:group-hover:scale-105 group-hover:mr-0 md:group-hover:mr-5">
+              {/* Final Step */}
+              <div className="flex items-end group">
+                <div className="w-1/2 pr-10 text-right">
+                  <h3 className="mb-2 text-base md:text-xl font-bold text-customred transition-transform duration-300 ease-in-out md:group-hover:scale-105 group-hover:mr-0 md:group-hover:mr-5">
                     Start a new journey!
                   </h3>
                 </div>
 
-                {/* <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-normal bg-white text-black">
-                                    06
-                                </div> */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white p-3 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] group-hover:shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] group-hover:border-4 group-hover:border-[#ec2027]  ">
-                  <span className="text-2xl">🤝</span>
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white p-3 transition-all duration-300 ease-in-out shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] group-hover:shadow-[0px_4px_8px_0px_rgba(236,32,39,1.00)] group-hover:border-4 group-hover:border-[#ec2027] group-hover:bg-[#ec2027]">
+                  <span className="text-2xl transition-all duration-300 ease-in-out group-hover:text-white">
+                    🤝
+                  </span>
                 </div>
 
                 <div className="w-1/2"></div>
@@ -731,13 +907,13 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
       <section className="bg-black px-6 py-16 md:py-20">
         <div className="mx-auto container">
-          <h2 className="mb-14 md:mb-20 text-center text-4xl font-bold text-white md:text-5xl">
+          <h2 className="mb-14 md:mb-20 text-center text-xl font-bold text-white md:text-5xl">
             We have {positions.length} open positions now!
           </h2>
 
           <div className="grid gap-8 lg:grid-cols-[300px,1fr]">
             {/* Sidebar Filters */}
-            <div className="space-y-4">
+            <div className="space-y-4 hidden md:block">
               {departments.map((dept) => (
                 <button
                   key={dept.name}
@@ -766,36 +942,38 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
               {visiblePositions.map((position, index) => (
                 <div
                   key={index}
-                  className="rounded-sm bg-white py-5 px-8 transition-all hover:shadow-lg"
+                  className="rounded-sm bg-white py-5 px-4 md:px-8 transition-all hover:shadow-lg"
                 >
-                  <h3 className="mb-3 text-[28px] font-semibold text-[#090808]">
+                  <h3 className="mb-3 text-xl md:text-[28px] font-semibold text-[#090808]">
                     {position.title}
                   </h3>
                   <div className="mb-4 flex flex-wrap gap-2">
                     {position.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="rounded-full border border-black px-3 py-1 text-sm text-black"
+                        className="rounded-full border border-black px-3 py-1 text-[10px] md:text-sm text-black"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <p className="mb-6 text-gray-600">{position.description}</p>
+                  <p className="mb-6 text-gray-600 text-[10px] md:text-base">
+                    {position.description}
+                  </p>
 
-                  <div className="flex justify-end">
+                  {/* <div className="flex justify-end">
                     <button className="group flex  items-center gap-2 text-white  bg-[#ec2027] rounded-[29px] transition-colors px-4 py-3 hover:text-gray-100">
                       See positions
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               ))}
 
               {filteredPositions.length > 3 && (
                 <button
                   onClick={() => setShowAll(!showAll)}
-                  className="mx-auto mt-8 flex items-center gap-2 rounded-full border border-white px-6 py-3 text-white transition-colors hover:bg-white hover:text-black"
+                  className="mx-auto mt-8 flex items-center gap-2 rounded-full border text-xs md-text-base border-white px-6 py-3 text-white transition-colors hover:bg-white hover:text-black"
                 >
                   {showAll ? "Show less" : "Show more..."}
                 </button>
@@ -810,10 +988,12 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       <section className="bg-[#0F0F0F] px-6 py-16 md:py-20">
         <div className="mx-auto container">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-5xl  text-white md:text-5xl">
+            <h2 className="mb-4 text-3xl  text-white md:text-5xl">
               Stories by MustTechers!
             </h2>
-            <p className="text-xl text-white/100">Read more on our blog</p>
+            <p className="text-sm md:text-xl text-white/100">
+              Read more on our blog
+            </p>
           </div>
 
           <Swiper
@@ -833,7 +1013,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
             {blogs.map((blog, index) => (
               <SwiperSlide key={index}>
                 <div key={index} className="group overflow-hidden  bg-white/10">
-                  <div className="relative h-[200px] w-full overflow-hidden">
+                  <div className="relative w-full overflow-hidden">
                     <img
                       src={`/images${blog.image}.svg`}
                       alt={blog.title}
@@ -841,8 +1021,8 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="mb-4 text-white text-2xl font-semibold">
-                      {blog.heading}{" "}
+                    <h4 className="mb-4 text-white text-base md:text-2xl font-semibold">
+                      {blog.heading}
                     </h4>
 
                     <div className="mb-4 flex items-center gap-4">
@@ -854,7 +1034,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                         />
                       </div>
                       <div>
-                        <h6 className="text-base text-white">
+                        <h6 className="text-sm md:text-base text-white">
                           {blog.author.name}
                         </h6>
                         <span className="text-[10px] text-[#C4C4C4]">
@@ -863,14 +1043,14 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                       </div>
                     </div>
 
-                    <p className="text-white mb-6 text-sm">
-                      {blog.description}{" "}
+                    <p className="text-white md:mb-6 text-xs md:text-sm">
+                      {blog.description}
                     </p>
 
-                    <button className="group flex  items-center gap-2   bg-white rounded-[29px] transition-colors px-4 py-2 hover:text-gray-900">
+                    {/* <button className="group flex  items-center gap-2   bg-white rounded-[29px] transition-colors px-4 py-2 hover:text-gray-900">
                       Read more
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </SwiperSlide>
@@ -880,12 +1060,12 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
       </section>
 
       {/* social section  */}
-      <section className="bg-[#0F0F0F] px-6 pt-10 pb-20">
+      <section className="bg-[#0F0F0F] px-6 pt-10 pb-20 hidden md:block ">
         <div className="mx-auto container">
-          <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-6">
+          <div className="grid  gap-7 grid-cols-6">
             {/* image 1  */}
             <div
-              className={`group  relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-2 md:row-span-2`}
+              className={`group  relative overflow-hidden rounded-sm col-span-2 row-span-2`}
             >
               <div className="text-white text-6xl ">
                 <h3>
@@ -899,7 +1079,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
             {/* image 2 */}
             <div
-              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-1 md:row-span-3`}
+              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-3`}
             >
               <img
                 src={`/images/gallery/image1.png`}
@@ -914,7 +1094,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
             {/* image 3 */}
             <div
-              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-1 md:row-span-4`}
+              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-4`}
             >
               <img
                 src={`/images/gallery/image2.png`}
@@ -929,7 +1109,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
             {/* image 4 */}
             <div
-              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-2 md:row-span-2`}
+              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-2 row-span-2`}
             >
               <img
                 src={`/images/gallery/image3.png`}
@@ -942,7 +1122,7 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
             {/* image 1 row 2 */}
             <div
-              className={`group relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-2 md:row-span-2`}
+              className={`group relative overflow-hidden rounded-sm col-span-2 row-span-2`}
             >
               <img
                 src={`/images/gallery/image4.png`}
@@ -957,15 +1137,20 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
 
             {/* image 2 row 2 */}
             <div
-              className={`group relative flex items-center  overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-2 md:row-span-2`}
+              className={`group relative flex items-center  overflow-hidden rounded-sm col-span-2 row-span-2`}
             >
               <div className="text-white lg:max-w-[350px]">
                 <p className="mb-4">
                   We are eager to be in touch with you in the following
                   channels:
                 </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center gap-4 transition-colors hover:text-red-500">
+                <div className="grid grid-cols-1 gap-4">
+                  <a
+                    href="https://www.facebook.com/musttechsolution" // Replace with your actual Facebook page link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 transition-colors hover:text-red-500"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="37"
@@ -981,9 +1166,9 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                       />
                     </svg>
                     <p>Facebook</p>
-                  </div>
+                  </a>
 
-                  <div className="flex items-center gap-4 transition-colors hover:text-red-500">
+                  {/* <div className="flex items-center gap-4 transition-colors hover:text-red-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="37"
@@ -1003,9 +1188,9 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                       />
                     </svg>
                     <p>Youtube</p>
-                  </div>
+                  </div> */}
 
-                  <div className="flex items-center gap-4 transition-colors hover:text-red-500">
+                  {/* <div className="flex items-center gap-4 transition-colors hover:text-red-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="37"
@@ -1021,9 +1206,14 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                       />
                     </svg>
                     <p>Twitter</p>
-                  </div>
+                  </div> */}
 
-                  <div className="flex items-center gap-4 transition-colors hover:text-red-500">
+                  <a
+                    href="https://www.instagram.com/musttechsolutions/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 transition-colors hover:text-red-500"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="37"
@@ -1049,9 +1239,14 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                       />
                     </svg>
                     <p>Instagram</p>
-                  </div>
+                  </a>
 
-                  <div className="flex items-center gap-4 transition-colors hover:text-red-500">
+                  <a
+                    href="https://www.linkedin.com/company/musttechsolutions/posts/?feedView=all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 transition-colors hover:text-red-500"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="37"
@@ -1067,14 +1262,80 @@ At <strong> MustTech </strong>, your career isn’t just a job—it’s a chance
                       />
                     </svg>
                     <p>LinkedIn</p>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* image 3 row 2 */}
             <div
-              className={`group hidden lg:block relative overflow-hidden rounded-sm col-span-1 row-span-1 md:col-span-1 md:row-span-1`}
+              className={`group relative overflow-hidden rounded-sm col-span-1 row-span-1`}
+            >
+              <img
+                src={`/images/gallery/image5.png`}
+                alt="jh"
+                width={800}
+                height={600}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+
+              <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* social section responsive */}
+      <section className="bg-[#0F0F0F] px-6 pt-10 pb-20 block md:hidden ">
+        <div className="mx-auto container">
+          <div className="grid  gap-7 grid-cols-3">
+            {/* image 1  */}
+            <div
+              className={`group  relative overflow-hidden rounded-sm col-span-2 row-span-2`}
+            >
+              <div className="text-white text-3xl ">
+                <h3>
+                  <span className="font-bold"> Follow us </span>{" "}
+                  {`on social to see what we're up to!`}
+                </h3>
+              </div>
+
+              <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
+            </div>
+
+            {/* image 2 */}
+            <div
+              className={`group lg:mt-28 relative overflow-hidden rounded-sm col-span-1 row-span-3`}
+            >
+              <img
+                src={`/images/gallery/image1.png`}
+                alt="jh"
+                width={800}
+                height={600}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+
+              <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
+            </div>
+
+            {/* image 1 row 2 */}
+            <div
+              className={`group relative overflow-hidden rounded-sm col-span-2 row-span-2`}
+            >
+              <img
+                src={`/images/gallery/image4.png`}
+                alt="jh"
+                width={800}
+                height={600}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+
+              <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
+            </div>
+
+            {/* image 3 row 2 */}
+            <div
+              className={`group relative overflow-hidden rounded-sm col-span-1 row-span-1`}
             >
               <img
                 src={`/images/gallery/image5.png`}

@@ -57,18 +57,18 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-12 flex items-center justify-between">
-          <h2 className="self-end text-base font-bold text-white md:text-base">
+          <h2 className="self-center md:self-end text-xs md:text-base font-bold text-white md:text-base">
             {"Hear what our customers say :)"}
           </h2>
-          <div className="flex gap-4">
+          <div className="flex gap-2 md:gap-4">
             <button
-              className="custom-swiper-button-prev rounded border border-customred p-4 text-customred transition-colors hover:bg-customred hover:text-white"
+              className="custom-swiper-button-prev rounded border border-customred p-2 md:p-4 text-customred transition-colors hover:bg-customred hover:text-white"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
             <button
-              className="custom-swiper-button-next rounded border border-customred p-4 text-customred transition-colors hover:bg-customred hover:text-white"
+              className="custom-swiper-button-next rounded border border-customred p-2 md:p-4 text-customred transition-colors hover:bg-customred hover:text-white"
               aria-label="Next testimonial"
             >
               <ChevronRight className="h-4 w-4" />
@@ -96,7 +96,7 @@ export default function Testimonials() {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-6">
+              <div className="rounded-lg border border-[#A1AEBF]   bg-[#0F0F0F] p-6">
                 <div className="mb-6 flex items-center gap-4">
                   <img
                     src={testimonial.image}

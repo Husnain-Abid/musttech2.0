@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function HeroSection({ data }) {
   return (
-    <section className="relative min-h-[500px] md:min-h-[600px] bg-black overflow-hidden">
+    <section className="relative min-h-[330px] md:min-h-[500px] lg:min-h-[600px] bg-black overflow-hidden">
       {/* Grid Pattern */}
       <div
         className="absolute inset-0 opacity-20"
@@ -13,14 +13,14 @@ export default function HeroSection({ data }) {
         }}
       />
 
-      {/* Gradient Effects */}
+      {/* Gradient Effects up side */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="424"
         height="631"
         viewBox="0 0 424 631"
         fill="none"
-        className="absolute bottom-0 right-0 "
+        className="hidden md:block absolute top-0 right-0 "
       >
         <g filter="url(#filter0_f_36_39)">
           <path
@@ -53,10 +53,50 @@ export default function HeroSection({ data }) {
         </defs>
       </svg>
 
-      {/* Gradient Effects */}
+      {/* Gradient Effects up side res */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute bottom-0 left-0"
+        width="106"
+        height="225"
+        viewBox="0 0 106 225"
+        fill="none"
+        className="block md:hidden  absolute top-0 right-0 "
+      >
+        <g filter="url(#filter0_f_420_1996)">
+          <path
+            d="M132.916 45.6539C132.916 108.984 93.3881 253.008 93.8682 147.391C94.3483 41.7741 88.2671 159.031 54.0201 110.317C19.7731 61.6043 55.4604 -67.7227 85.5465 -67.7227C115.633 -67.7227 132.916 -17.6765 132.916 45.6539Z"
+            fill={`${data.color1}`}
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_420_1996"
+            x="0.444016"
+            y="-107.306"
+            width="172.055"
+            height="331.856"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="19.7917"
+              result="effect1_foregroundBlur_420_1996"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      {/* Gradient Effects down side */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="hidden md:block absolute bottom-0 left-0"
         width="436"
         height="326"
         viewBox="0 0 436 326"
@@ -93,25 +133,62 @@ export default function HeroSection({ data }) {
         </defs>
       </svg>
 
+      {/* Gradient Effects down side res */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="block md:hidden absolute bottom-0 left-0"
+        width="118"
+        height="229"
+        viewBox="0 0 118 229"
+        fill="none"
+      >
+        <g filter="url(#filter0_f_408_864)">
+          <path
+            d="M-132.175 126.559C-133.931 88.8614 -48.5266 -1.03288 -46.6835 61.8856C-44.8403 124.804 -34.3385 54.3672 44.4669 79.7549C123.272 105.143 46.1468 185.884 -21.8973 189.054C-89.9414 192.224 -130.418 164.256 -132.175 126.559Z"
+            fill={`${data.color2}`}
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_408_864"
+            x="-171.786"
+            y="0.55925"
+            width="289.116"
+            height="228.323"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="19.7917"
+              result="effect1_foregroundBlur_408_864"
+            />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Content */}
-      <div className="relative mx-auto container px-6 py-16 md:py-20">
-        <span className="mb-5 inline-block text-2xl font-bold text-customred">
+      <div className="relative mx-auto container px-6 pb-10 pt-5 md:py-16 lg:py-20">
+        <span className="mb-2 md:mb-5 inline-block  text-base md:text-2xl font-bold text-customred">
           {data.page}
         </span>
-        <h1 className="mb-6 text-5xl font-bold text-white md:text-6xl lg:text-7xl">
+        <h1 className="mb-2 md:mb-6 text-[40px] font-bold text-white md:text-6xl lg:text-7xl">
           {data.title}
         </h1>
-        <p className="mb-8 text-sm max-w-[523px]  font-normal leading-relaxed text-white/100 md:text-base">
+        <p className="mb-2 md:mb-8 text-sm max-w-[523px]  font-normal leading-relaxed text-white/100 md:text-base">
           {data.description}
         </p>
         <Link
           to="/contact"
-          className="inline-block rounded-full bg-red-500 px-6 py-3 font-semibold text-black transition-colors hover:bg-red-600"
+          className="inline-block rounded-full text-xs md:text-base bg-customred px-6 py-3 font-semibold text-black transition-colors hover:bg-red-600"
         >
-          
           {data.button.toUpperCase()}
-
-
         </Link>
       </div>
     </section>

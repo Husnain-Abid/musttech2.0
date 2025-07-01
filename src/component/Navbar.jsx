@@ -6,7 +6,10 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const dropdownRef = useRef(null);
+  
+  const dropdownRef = useRef(null); // For Desktop
+  const mobileDropdownRef = useRef(null); // For Mobile
+  const mobileMenuRef = useRef(null); // Mobile Menu
 
   // Close dropdown when route changes
   useEffect(() => {
@@ -17,8 +20,16 @@ export default function Navbar() {
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (
+        dropdownRef.current && 
+        !dropdownRef.current.contains(event.target) && 
+        mobileDropdownRef.current && 
+        !mobileDropdownRef.current.contains(event.target) &&
+        mobileMenuRef.current && 
+        !mobileMenuRef.current.contains(event.target)
+      ) {
         setIsServicesOpen(false);
+        setIsMobileMenuOpen(false);
       }
     }
 
@@ -30,7 +41,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-[#0F0F0F]/40 backdrop-blur-[18px] px-6 md:px-16 h-[100px] flex items-center justify-between">
       {/* Logo */}
       <Link to="/" className="flex items-center text-2xl font-bold">
-        <img src="/images/logo.svg" alt="Company Logo" width={235} height={52} />
+        <img src="/images/logo.png" alt="Company Logo" width={235} height={52} />
       </Link>
 
       {/* Desktop Navigation */}
@@ -61,13 +72,9 @@ export default function Navbar() {
               <Link to="/services/seo" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                 SEO
               </Link>
-
-
               <Link to="/services/cro" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-              CRO
+                CRO
               </Link>
-
-
             </div>
           )}
         </div>
@@ -88,28 +95,58 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-[100px] left-0 w-full bg-[#0F0F0F]/90 backdrop-blur-md flex flex-col gap-4 py-4 px-6 md:hidden">
+        <div ref={mobileMenuRef} className="absolute top-[100px] left-0 w-full h-screen bg-[#0F0F0F] backdrop-blur-md flex flex-col gap-4 py-4 px-6 md:hidden">
           <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-          <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex items-center justify-between text-white hover:text-gray-300">
+          <button 
+            onClick={() => setIsServicesOpen(!isServicesOpen)} 
+            className="flex items-center justify-between text-white hover:text-gray-300"
+          >
             Services
             <ChevronDown className="h-4 w-4" />
           </button>
           {isServicesOpen && (
-            <div className="pl-4 flex flex-col gap-2">
-              <Link to="/services/web-development" className="text-white/100 hover:text-gray-100">
+            <div ref={mobileDropdownRef} className="pl-4 flex flex-col gap-2">
+              <Link 
+                to="/services/web-development" 
+                className="text-white/100 hover:text-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Web Development
               </Link>
-              <Link to="/services/mobile-app" className="text-white/100 hover:text-gray-100">
+              <Link 
+                to="/services/mobile-app" 
+                className="text-white/100 hover:text-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Mobile App
               </Link>
-              <Link to="/services/branding" className="text-white/100 hover:text-gray-100">
+              <Link 
+                to="/services/branding" 
+                className="text-white/100 hover:text-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Branding
               </Link>
-              <Link to="/services/digital-marketing" className="text-white/100 hover:text-gray-100">
+              <Link 
+                to="/services/digital-marketing" 
+                className="text-white/100 hover:text-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Digital Marketing
               </Link>
-              <Link to="/services/seo" className="text-white/100 hover:text-gray-100">
+              <Link 
+                to="/services/seo" 
+                className="text-white/100 hover:text-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 SEO
+              </Link>
+              <Link 
+                to="/services/cro" 
+                className="text-white/100 hover:text-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                CRO
               </Link>
             </div>
           )}

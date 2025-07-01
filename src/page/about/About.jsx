@@ -53,7 +53,7 @@ landscape.`,
           {/* Home Button */}
           <Link
             to="/"
-            className="inline-block rounded-full border border-white px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
+            className="inline-block rounded-full border border-white px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
           >
             GO TO HOME
           </Link>

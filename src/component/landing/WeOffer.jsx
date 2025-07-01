@@ -44,17 +44,17 @@ export default function WeOffer() {
     <section className="bg-[#0B0B0B;] py-16 md:pt-20 ">
       <div className="mx-auto max-w-5xl px-6">
         {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+        <div className="mb-10 md:mb-16 text-center">
+          <h2 className="mb-6 text-[28px] font-bold text-white md:text-4xl">
             We Offer
           </h2>
-          <p className="mx-auto max-w-[634px] text-white/100 px-3">
+          <p className="mx-auto text-sm md:text-base max-w-[634px] text-white/100 px-3">
           Explore our range of services designed to drive innovation, efficiency, and growth for your business.     
                </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Card key={index} service={service} />
           ))}
